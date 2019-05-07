@@ -1,0 +1,7546 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass IEEEtran
+\begin_preamble
+% for subfigures/subtables
+\usepackage[caption=false,font=footnotesize]{subfig}
+
+%\def\ps@IEEEtitlepagestyle{%
+%  \def\@oddfoot{\mycopyrightnotice}%
+ % \def\@evenfoot{}%
+%}
+%\def\mycopyrightnotice{%
+ % {\footnotesize 978-1-5090-1815-4/16/\$31.00 \textcopyright2016 IEEE\hfill}% <--- Change here
+%  \gdef\mycopyrightnotice{}% just in case
+%}
+
+\exhyphenpenalty=10000\hyphenpenalty=10000
+
+% for colored tables
+\usepackage{colortbl}
+\usepackage{csquotes}
+\end_preamble
+\options peerreview
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding default
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex
+\index_command default
+\float_placement tbp
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_title "Your Title"
+\pdf_author "Your Name"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle false
+\pdf_quoted_options "pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false"
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+This is a template \SpecialChar LyX
+ file for conference articles of conferences organized
+ by the Institute of Electrical and Electronics Engineers (IEEE).
+ For IEEE journal articles, see the template file 
+\emph on
+IEEEtran-Journal.lyx
+\emph default
+.
+ For general info see 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://wiki.lyx.org/Examples/IEEE
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+It is important that you use the correct document class options for your
+ document..
+ These are explained in the IEEEtran documentation: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://mirror.ctan.org/macros/latex/contrib/IEEEtran/IEEEtran_HOWTO.pdf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+A Systematic Co-Design Method of 
+\begin_inset Formula $LCL$
+\end_inset
+
+ filters and Active Damping Based on Virtual Circuit Design 
+\begin_inset CommandInset include
+LatexCommand include
+filename "D:/PhD/text/control/MathMacros.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Presently the 
+\begin_inset Formula $LCL$
+\end_inset
+
+ filter is often used because it offers superior harmonic rejection and
+ allows for more compact design compared to the 
+\begin_inset Formula $L$
+\end_inset
+
+ filter.
+ However, this comes with the inherent resonance problem.
+ Apart from improving the bandwidth of the system, the active damping of
+ the resonance by software should be taken into account for better efficiency
+ and more compact design (In some applications [,Table III], the passive
+ damping part is 8% of the whole filter volume.).
+ 
+\end_layout
+
+\end_inset
+
+Not only does the active resonant damping enable output filters to achieve
+ greater efficiency, but also higher power density.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Table III"
+key "Boillat2015"
+
+\end_inset
+
+, even after the optimization, the passive-damping part in the high-performance
+ two-stage 
+\begin_inset Formula $LC$
+\end_inset
+
+ filter (
+\begin_inset Formula $5^{\mathrm{th}}$
+\end_inset
+
+-order 
+\begin_inset Formula $LCLCL$
+\end_inset
+
+ filter) still occupies 9% of the whole filter volume.
+ Despite many studies of the component sizing and the active-damping design
+ of 
+\begin_inset Formula $LCL$
+\end_inset
+
+ filters, they share two common limitations.
+ Firstly, these two design steps are carried out independently 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Liserre2005,Zhang2014"
+
+\end_inset
+
+.
+ It starts with the component sizing followed by the control design to stabilize
+ the filter resonance (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proposed-design-approach"
+
+\end_inset
+
+)
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+to satisfy the power-quality and practical requirements such as maximum
+ output current ripple at both converter and grid sides, capacitive reactive
+ power limits, etc.
+ [LLCL ref].
+\end_layout
+
+\end_inset
+
+.
+ Secondly, the control and active-damping design tends to depend mainly
+ on empirical and/or numerical tuning, particularly for filters with orders
+ higher than 
+\begin_inset Formula $LCL$
+\end_inset
+
+ filters.
+ For example, the computation of the controller gains for voltage control
+ and active damping for the 
+\begin_inset Formula $5^{\mathrm{th}}$
+\end_inset
+
+-order 
+\begin_inset Formula $LCLCL$
+\end_inset
+
+ filter in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Boillat2016a"
+
+\end_inset
+
+ relies on tedious optimization process.
+ Given P and PI control structures, it employs a numerical optmization with
+ a brute-force discretization of the control parameters.
+\end_layout
+
+\begin_layout Standard
+The performance of the system can be improved if the design of the component
+ sizing and AD technique are considered together.
+ Without hardware co-design, it is difficult to design the controller to
+ fully obtain any desired closed-loop responses with good robustness 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "He2012"
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+This is because there are many possibilities of component sizing to achieve
+ the desired resonance frequency.
+ But to achieve the exact desired transfer function, some relations must
+ be imposed the each component value.
+ It lacks a systematic method providing the freedom to specify the final
+ system performance.
+ 
+\end_layout
+
+\end_inset
+
+.
+ From a viewpoint of system theory, although the closed-loop virtual circuit
+ can be arbitrarily placed by using the pole-placement technique, it does
+ not guarantee the good robustness of the system.
+ Analogously, from a viewpoint of the VCC method as mentioned in the Chapter
+ xx, a virtual circuit should not be designed arbitrarily, but closed to
+ the physical circuit as much as possible (e.g.
+ modifying on the elements next to the converter).
+ Otherwise, the robustness of the system could be degraded, which is indicated
+ by the condition number of a transformation matrix in xx.
+ 
+\end_layout
+
+\begin_layout Standard
+To the best of authors' knowledge, there are limited number of studies focusing
+ on the systematic co-design method of high-order filters.
+ Although 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zhang2014a"
+
+\end_inset
+
+ proposes the co-design method considering a feasible range of filter resonance
+ frequency to ensure the stable performance with the desired phase and gain
+ margins of the closed-loop response, the method cannot ensure arbitrary
+ closed-loop transfer functions and a complete damp of a resonance peak.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+This is because there are many possibilities of component sizing to achieve
+ the desired resonance frequency.
+ But to achieve the exact desired transfer function, some relations must
+ be imposed the each component value.
+ It lacks a systematic method providing the freedom to specify the final
+ system performance.
+ 
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+To overcome the limitations above, this chapter proposes a systematic hardware
+ and control co-design method based on the VCC method.
+ The method takes a desired transfer function as input and simultaneously
+ produces the filter component values together with the parameters for the
+ associated active-damping scheme as output (outlined in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proposed-design-approach"
+
+\end_inset
+
+).
+ In other words, this co-design method utilizes the VCC method in the reverse
+ direction.
+ In the previous chapter, a virtual circuit is designed based on a given
+ designed filter Section xx Chapter xx.
+ On the contrary, the proposed co-design method firstly synthesizes a virtual
+ circuit, based on which a physical filter is designed accordingly by adopting
+ some components of which.
+ The virtual circuit considered herein has only a single resistor, i.e.
+ at the converter side (like circuit B).
+ According to the well-established theory of network synthesis, this structure
+ corresponds to a singly-terminated ladder network, which can synthesise
+ an 
+\begin_inset Formula $LC$
+\end_inset
+
+ ladder filters of arbitrary order to corresponds to any causal and stable
+ transfer functions 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Valkenburg1965"
+
+\end_inset
+
+.
+ Furthermore this method can be theoretically extended to arbitrary order
+ of 
+\begin_inset Formula $LC$
+\end_inset
+
+ filter, while those presented so far are limited to some specific filter
+ topologies, such as 
+\begin_inset Formula $LCL$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Parker2014"
+
+\end_inset
+
+ and 
+\begin_inset Formula $LLCL$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Huang2016"
+
+\end_inset
+
+, and cannot be simply applied to other higher-order topologies.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NiyomCompel2016,BrunoEPE2016,Niyomsatian2016"
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+According to the theory of network synthesis 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "EG57"
+
+\end_inset
+
+, the theory proves that large classes of properly damped transfer functions
+ can be realized with singly-terminated network and an 
+\begin_inset Formula $LC$
+\end_inset
+
+-ladder network in Fig.
+ xx.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+In other words, with the termination emulated by the half-bridge switch
+ as depicted in Fig.
+ xx, the 
+\begin_inset Formula $LC$
+\end_inset
+
+-ladder network can be designed to represent a properly damped desired closed-lo
+op transfer function.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+The proposed design method builds on a control algorithm actively emulating
+ the network's termination and the well-established theory on 
+\color black
+ladder network synthesis [Valkerberg]
+\color inherit
+.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+This can be done easily with modern-day numerical programs and even can
+ be automated using algorithms as described in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "EG57"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+The component values synthesized from the procedure can then be simply scaled
+ to the desired resonance-frequency and impedance level to satisfy the power-qua
+lity constraints.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+It should be noted that the resultant primary inductance 
+\begin_inset Formula $L_{1}$
+\end_inset
+
+ will be partitioned to the virtual part 
+\begin_inset Formula $L_{1,e}$
+\end_inset
+
+ emulated by the half-bridge switch and the physical part 
+\begin_inset Formula $L_{1,p}$
+\end_inset
+
+ limited by the ripple current at the inverter side.
+\end_layout
+
+\begin_layout Plain Layout
+
+\color black
+The core idea of the design method is to represent the 
+\emph on
+desired closed-loop behaviour
+\emph default
+ by means of a virtual reference circuit,
+\color inherit
+ where the filter transfer function is implemented by lossless inductor
+ and capacitor components connected with terminating resistors,
+\color black
+ and to use the converter's half-bridge to mimic part of its components
+ with proper control law (explained in the following section).
+
+\color inherit
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+A second step of the design method therefore synthesizes the ladder network
+ topology as well as its component values.
+ This can be done easily with modern-day numerical programs and even can
+ be automated using algorithms as described in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "EG57"
+
+\end_inset
+
+.
+ Subsequently the obtained component values are scaled to achieve the power-qual
+ity requirements.
+ The last step is to determine the physical part of the primary inductance
+ 
+\begin_inset Formula $L_{1,p}$
+\end_inset
+
+ which is determined by current ripple and thermal requirements and often
+ exceeds its counterpart obtained from the synthesized procedure.
+ Therefore, the virtual part of the primary inductance, i.e.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+$L_{1,e}$
+\end_layout
+
+\end_inset
+
+, is negative and used to emulate away part of the physical inductance.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The aim of this chapter is to demonstrate the application of the VCC method
+ for co-design a control and hardware.
+ 
+\end_layout
+
+\begin_layout Standard
+Since the desired response in power electronics applications generally are
+ low-pass response, 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+private poles of 
+\begin_inset Formula $y_{11}$
+\end_inset
+
+ normally are not found.
+\end_layout
+
+\end_inset
+
+the suitable arrangements are based on the Cauer-type I network.
+ 
+\end_layout
+
+\begin_layout Standard
+To sum up, the highlights of this method are as follows:
+\end_layout
+
+\begin_layout Enumerate
+The component sizing and active damping are simultaneously tackled and can
+ be easily automated.
+ This can be done easily with modern-day numerical programs and even can
+ be automated using algorithms as described in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "EG57"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The chapter starts with the revision of the theory of 
+\begin_inset Formula $LC$
+\end_inset
+
+ ladder network synthesis for designing a virtual circuit.
+ The physical design constraints are introduced for hardware realization.
+ Subsequently, the example of This letter revisits the design of 
+\begin_inset Formula $LCL$
+\end_inset
+
+ filters based on systematic co-design perspective of component sizing and
+ control algorithm.
+ The experimental design of the 
+\begin_inset Formula $LCL$
+\end_inset
+
+ filter is exemplified.
+ Moreover, the feasibility study of the extension of the method to the 
+\begin_inset Formula $5^{\mathrm{th}}$
+\end_inset
+
+-order 
+\begin_inset Formula $LCLCL$
+\end_inset
+
+ filter is conducted with multiobjective optimization.
+ The comparison of the Pareto fronts of the conventional 
+\begin_inset Formula $3^{\mathrm{rd}}$
+\end_inset
+
+-order 
+\begin_inset Formula $LCL$
+\end_inset
+
+ filter and the 
+\begin_inset Formula $5^{\mathrm{th}}$
+\end_inset
+
+-order 
+\begin_inset Formula $LCLCL$
+\end_inset
+
+ filter are drawn for two example with different switching frequencies.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide true
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename D:/virtual_circuit/ecce2016/procedureLCL_letter.pdf
+	width 100line%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Proposed design method for 
+\begin_inset Formula $LCL$
+\end_inset
+
+ filters (blue arrows).
+ (a) A desired damped response is selected as an input of the procedure.
+ (b) Left: A normalized singly-terminated ladder network matching the desired
+ response is synthesized.
+ Right: The scaling of component values and partitioning of the primary
+ inductor are carried out to satisfy physical constraints, dividing the
+ primary inductor into a physical and a virtual parts.
+ (c) The physical part yields the actual filter network, while the virtual
+ part is emulated by the proper control of the half-bridge converter for
+ active damping.
+ The conventional approach is in reverse order following the red arrows
+ starting with the component sizing.
+ The desired response is difficult to be freely achieved because the active
+ damping is designed subsequently and independently.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Proposed-design-approach"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Design of Filter Component Values
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:comp_sizing"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The co-design method in this chapter relies on the virtual circuit with
+ a single resistor at the converter side, called singly-terminated network
+ according to the theory of network synthesis.
+ This presents the following two main benefits:
+\end_layout
+
+\begin_layout Enumerate
+The structure of singly-terminated ladder network in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:two-port"
+
+\end_inset
+
+b can be systemtically synthesized to correspond exactly to any causal and
+ stable rational transfer function 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Valkenburg1965"
+
+\end_inset
+
+.
+ This faciliates the design of high-order filters with general order.
+\end_layout
+
+\begin_layout Enumerate
+The structure of this circuit corresponds to the finding in Chapter xx that
+ the virtual circuit with the parts next to the converter being modified
+ (
+\begin_inset Formula $R_{\mathrm{1v}}$
+\end_inset
+
+ and 
+\begin_inset Formula $L_{\mathrm{1v}}$
+\end_inset
+
+) results in the transformation matrix in (xx) with small condition number.
+ In other words, this structure of the virtual circuit naturally resemble
+ the one of the physical circuit.
+ This results in the VCC system with good robustness.
+\end_layout
+
+\begin_layout Standard
+To begin with, the virtual circuit is synthesized.
+ The components from 
+\begin_inset Formula $L_{{\rm 1p}}$
+\end_inset
+
+ onward to the grid can be realized as the physical 
+\begin_inset Formula $LCL$
+\end_inset
+
+ filter (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proposed-design-approach"
+
+\end_inset
+
+c) as desired.
+\end_layout
+
+\begin_layout Standard
+Since the structure of output filters for VSCs is naturally a ladder network,
+ the theory of singly-terminated ladder network synthesis is firstly reviewed
+ to facilitate the component sizing.
+ The virtual circuit topology in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:two-port"
+
+\end_inset
+
+b can be synthesized to correspond exactly to any causal and stable rational
+ transfer function 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Valkenburg1965"
+
+\end_inset
+
+.
+ Thus, the desired transfer function can be freely chosen based on the specifica
+tion in time- or frequency domain.
+ Subsequently, the synthesized network will be realized to satisfy the hardware
+ constraints like in the conventional procedure 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Liserre2005,Huang2016"
+
+\end_inset
+
+.
+ This section explains the general overview of the design of filter component
+ values.
+\end_layout
+
+\begin_layout Subsection
+Ladder Network Synthesis 
+\end_layout
+
+\begin_layout Subsubsection
+Network admittance generation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename D:/virtual_circuit/ecce2016/y_param2.pdf
+	width 50line%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Physical circuit
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename D:/virtual_circuit/ecce2016/y_param_vir2.pdf
+	width 42line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Virtual reference circuit
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+(a) Physical half-bridge converter with an output filter in grid-connected
+ applications.
+ (b) Singly-terminated ladder network based on the same output filter, of
+ which the admittance 
+\begin_inset Formula $Y(s)=\frac{i_{{\rm g}}}{v_{{\rm vc}}}$
+\end_inset
+
+ can be synthesized to correspond exactly to any causal and stable rational
+ transfer function.
+ Note that the output filter is represented by a two-port network with admittanc
+e 
+\begin_inset Formula $y$
+\end_inset
+
+-parameters.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:two-port"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\color black
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\color black
+The physical converter hardware consists of a set of semiconductor switches,
+ constituting a controllable voltage source, and a passive, lossless output
+ filter.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Design-procedure-overview"
+
+\end_inset
+
+-C depicts an example of a converter with a 3
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+rd
+\end_layout
+
+\end_inset
+
+ order output filter.
+ Semiconductor-emulated components are marked in gray.
+
+\color inherit
+ For clarity of the exposition, subsequent analysis elaborates the analysis
+ for a 3
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+rd
+\end_layout
+
+\end_inset
+
+ order closed-loop transfer function.
+ 
+\color black
+However, results are readily generalized to arbitrary order 
+\color inherit
+in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NiyomCompel2016"
+
+\end_inset
+
+
+\color black
+.
+
+\color inherit
+ 
+\color black
+In the case of low order transfer functions, one can map the coefficients
+ from the desired closed-loop transfer function to the coefficients of a
+ transfer function of a virtual circuit of the same order.
+ Although instructive, this approach quickly becomes cumbersome when dealing
+ with higher order networks 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "BrunoEPE2016"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\color inherit
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Switching frequency 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$f_s$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$8kHz$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color black
+Control frequency
+\color inherit
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$f_{ctrl}$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$16kHz$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DC-link capacitance 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$C_{link}$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$1500
+\backslash
+mu F$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nominal converter current 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_{n}$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$130A_{rms}$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Converter and semiconductor hardware characteristics 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Converter-hardware-characteristics"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+ The ladder network is represented by the admittance parameters (
+\begin_inset Formula $y$
+\end_inset
+
+-parameters) shown in
+\end_layout
+
+\end_inset
+
+The desired admittance (input voltage 
+\begin_inset Formula $v_{\mathrm{vc}}$
+\end_inset
+
+ to output current 
+\begin_inset Formula $i_{\mathrm{g}}$
+\end_inset
+
+ transfer function) of a resistive singly-terminated 
+\begin_inset Formula $LC$
+\end_inset
+
+-ladder network (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:two-port"
+
+\end_inset
+
+b) can be written as
+\begin_inset Formula 
+\begin{equation}
+Y(s)=\left.\frac{i_{\mathrm{g}}}{v_{\mathrm{vc}}}\right|_{v_{\mathrm{g}}=0}=\frac{y_{12}}{R_{\mathrm{s}}y_{11}+1},\label{eq:Giv}
+\end{equation}
+
+\end_inset
+
+with 
+\begin_inset Formula $y_{11}=\left.\frac{i_{\mathrm{conv}}}{v_{\mathrm{conv}}}\right|_{v_{\mathrm{g}}=0}$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{12}=\left.\frac{i_{\mathrm{conv}}}{v_{\mathrm{g}}}\right|_{v_{\mathrm{conv}}=0}$
+\end_inset
+
+ the 
+\begin_inset Formula $y$
+\end_inset
+
+-parameters of the 
+\begin_inset Formula $LC$
+\end_inset
+
+-ladder network.
+ 
+\color black
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\color black
+The core idea of the design method is to represent the 
+\emph on
+desired closed-loop behaviour
+\emph default
+ by means of a virtual reference circuit,
+\color inherit
+ where the filter transfer function is implemented by lossless inductor
+ and capacitor components connected with terminating resistors,
+\color black
+ and to use the converter's half-bridge to mimic part of its components
+ with proper control law (explained in the following section).
+\end_layout
+
+\end_inset
+
+
+\color inherit
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+The output current 
+\begin_inset Formula $i_{g}$
+\end_inset
+
+, which is the primary control objective, can be written as
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+i_{o}=\frac{y_{21}}{R_{s}y_{11}+1}v_{ss}+\left(y_{22}-\frac{y_{21}y_{12}}{R_{s}y_{11}+1}\right)v_{g}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+where
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+y_{11}=\left.\frac{i_{hb}}{v_{hb}}\right|_{v_{g}=0}\quad y_{12}=\left.\frac{i_{hb}}{v_{g}}\right|_{v_{hb}=0}\quad y_{21}=\left.\frac{i_{o}}{v_{hb}}\right|_{v_{g}=0}\quad y_{22}=\left.\frac{i_{o}}{v_{g}}\right|_{v_{hb}=0}.\label{eq:-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+In other words, 
+\begin_inset Formula $y_{11}$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{12}$
+\end_inset
+
+ can be synthesized such that 
+\begin_inset Formula $G_{iv}(s)=\widetilde{G}_{iv}(s)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+Thus, the ladder network (first Cauer form) can be synthesized by satisfying
+ the zeros and poles of 
+\begin_inset Formula $Y(s)$
+\end_inset
+
+ with 
+\begin_inset Formula $y_{11}(s)$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{12}(s)$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Valkenburg1965"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Initially, the normalized reference transfer function 
+\begin_inset Formula $Y_{{\rm n}}(s)=\dfrac{N(s)}{D(s)}$
+\end_inset
+
+ is chosen, where the 3-dB angular cut-off frequency 
+\begin_inset Formula $\omega_{\mathrm{c}}=2\pi f_{\mathrm{c}}$
+\end_inset
+
+ is at 
+\begin_inset Formula $\unit[1]{rad/s}$
+\end_inset
+
+ or 
+\begin_inset Formula $|Y_{\mathrm{n}}(j)|=\frac{1}{\sqrt{2}}$
+\end_inset
+
+.
+ With 
+\begin_inset Formula $R_{\mathrm{s}}=\unit[1]{\Omega}$
+\end_inset
+
+, the ladder network can be synthesized in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proposed-design-approach"
+
+\end_inset
+
+b-left.
+ The denominator is decomposed as 
+\begin_inset Formula $D(s)=D_{\mathrm{e}}(s)+D_{\mathrm{o}}(s)$
+\end_inset
+
+ where 
+\begin_inset Formula $D_{\mathrm{e}}(s)=D_{\mathrm{e}}(-s)$
+\end_inset
+
+ and 
+\begin_inset Formula $D_{\mathrm{o}}(s)=-D_{\mathrm{o}}(-s)$
+\end_inset
+
+ are even and odd polynomial functions respectively.
+ Since 
+\begin_inset Formula $y$
+\end_inset
+
+-parameters of 
+\begin_inset Formula $LC$
+\end_inset
+
+-networks must be ratios of even to odd or odd to even polynomial functions
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Valkenburg1965"
+
+\end_inset
+
+, the 
+\begin_inset Formula $y$
+\end_inset
+
+-parameters of the filter are related to the desired transfer function in
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Giv"
+
+\end_inset
+
+) as follows:
+\begin_inset Formula 
+\begin{equation}
+\begin{split}N(s)\mbox{ is even: \ensuremath{\quad}} & y_{11}(s)=\frac{D_{\mathrm{e}}(s)}{D_{\mathrm{o}}(s)}\ ,\ y_{12}(s)=\frac{N(s)}{D_{\mathrm{o}}(s)}\\
+N(s)\mbox{ is odd : \ensuremath{\quad}} & y_{11}(s)=\frac{D_{\mathrm{o}}(s)}{D_{\mathrm{e}}(s)}\ ,\ y_{12}(s)=\frac{N(s)}{D_{\mathrm{e}}(s)}.
+\end{split}
+\label{eq:Yparam}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Reference transfer function 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Values of normalized immittance coefficients in continued fraction expansion
+ for 
+\begin_inset Formula $3^{rd}$
+\end_inset
+
+- and 
+\begin_inset Formula $5^{th}$
+\end_inset
+
+-order 
+\begin_inset Formula $LC$
+\end_inset
+
+-filter topology 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:compare_filter"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="8">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\widetilde{G}_{iv}(s)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{11}(s)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $L_{1}^{(n)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{1}^{(n)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $L_{2}^{(n)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{2}^{(n)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $L_{3}^{(n)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row bottomspace="default">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $3^{rd}$
+\end_inset
+
+-order 
+\begin_inset Formula $LCL$
+\end_inset
+
+ filter
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{1+2s+2s^{2}+s^{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{2s^{2}+1}{s^{3}+2s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{4}{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{3}{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+–
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+–
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row bottomspace="default">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $5^{th}$
+\end_inset
+
+-order 
+\begin_inset Formula $LCLCL$
+\end_inset
+
+ filter
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{1+3.24s+5.24s^{2}+5.24s^{3}+3.24s^{4}+s^{5}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{3.24s^{4}+5.24s^{2}+1}{s^{5}+5.24s^{3}+3.24s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.31
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.89
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.38
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.69
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.55
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+The well-damped reference transfer function can be chosen freely as an input
+ of the process.
+ This reference transfer function can be chosen from the exemplary prototypes,
+ e.g.
+ the maximally flat low-pass response (Butterworh filter), the maximally
+ flat delay response (Bessel filters), and the response minimizing the integral
+ time absolute error (ITAE) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Valkenburg1965"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The first one focuses on the reference tracking capability and the control
+ bandwidth in frequency domain.
+ It yields the magnitude of closed-loop transfer function as close to one
+ as possible and in as wide frequency range as possible starting from zero
+ frequency 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Astrom1995"
+
+\end_inset
+
+.
+ This also corresponds to the so-called modulus optimum concepts in control
+ theory.
+ The second one focuses on the settling time of the response to a step function.
+ The last one is the step response which minimizes the ITAE criterion, i.e.
+ 
+\begin_inset Formula $\int_{0}^{\infty}t\left|e\left(t\right)\right|\,\mathrm{d}t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The reference transfer function considered in this work is the maximally
+ flat low-pass response.
+ The examples of 
+\begin_inset Formula $3^{\mathrm{rd}}$
+\end_inset
+
+- and 
+\begin_inset Formula $5^{\mathrm{th}}$
+\end_inset
+
+-order Butterworth filters are given in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "tab:compare_filter"
+
+\end_inset
+
+.
+ Note that the reference transfer function can also be chosen based on the
+ specification in time-domain.
+ More details can be read in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Valkenburg1965"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Ladder network synthesis
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+At a zero of transmission, the output is zero for the finite input of the
+ same frequency [Kuo].
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+According to (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Giv"
+
+\end_inset
+
+), the output current is zero at the zeros of 
+\begin_inset Formula $y_{12}$
+\end_inset
+
+ and private poles of 
+\begin_inset Formula $y_{11}$
+\end_inset
+
+ (poles that are not in common between 
+\begin_inset Formula $y_{12}$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{11}$
+\end_inset
+
+).
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+These difference zeros of transmission can be realized by one of the arrangement
+s in Fig.
+ ..
+ but they must not cancel out e.g.
+ the same kind of components in series or parallel is not allowed.
+ 
+\end_layout
+
+\end_inset
+
+The ladder network must be synthesized based on the given 
+\begin_inset Formula $y_{11}(s)$
+\end_inset
+
+ to satisfy the poles of 
+\begin_inset Formula $Y_{{\rm n}}(s)$
+\end_inset
+
+.
+ No finite zeros of 
+\begin_inset Formula $Y_{{\rm n}}(s)$
+\end_inset
+
+ is considered in this paper and thus 
+\begin_inset Formula $y_{12}$
+\end_inset
+
+ is irrelevant.
+ The normalized 
+\begin_inset Formula $LCL$
+\end_inset
+
+ filter of order 
+\begin_inset Formula $m$
+\end_inset
+
+ in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proposed-design-approach"
+
+\end_inset
+
+b-left can be realized by successive removal of poles at infinity of 
+\begin_inset Formula $y_{11}$
+\end_inset
+
+ and can be written as the following finite continued fraction
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+For 
+\begin_inset Formula $LCL$
+\end_inset
+
+ filters, 
+\begin_inset Formula $y_{12}$
+\end_inset
+
+ is irrelevant because it is constant and does not yield additional finite
+ poles and zeros.
+ 
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\paragraph_spacing single
+\begin_inset Formula 
+\[
+\frac{1}{y_{11}(s)}=Z_{1}(s)+\cfrac{1}{Y_{2}(s)+\cfrac{1}{Z_{3}(s)+\cfrac{1}{Y_{4}(s)+\cdots}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{y_{11}(s)}=sL_{1}^{(\mathrm{n})}+\cfrac{1}{sC_{1}^{(\mathrm{n})}+\cfrac{1}{\ddots+\cfrac{1}{sL_{\frac{m+1}{2}}^{(\mathrm{n})}}}}\,,\label{eq:continued_fraction}
+\end{equation}
+
+\end_inset
+
+of which the component values of the normalized filter network 
+\begin_inset Formula $C^{(\mathrm{n})}$
+\end_inset
+
+ and 
+\begin_inset Formula $L^{(\mathrm{n})}$
+\end_inset
+
+ can be found from the coefficient terms.
+ This process can be done and automated easily with Euclidean algorithm
+ in any numerical programs (e.g.
+ `
+\begin_inset Formula $\mathtt{deconv}$
+\end_inset
+
+' command in MATLAB).
+ The examples of the results for the Butterworth filters are shown in Table
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:compare_filter"
+
+\end_inset
+
+.
+ These normalized component values then can be scaled to the desired angular
+ cut-off frequency 
+\begin_inset Formula $\omega_{{\rm c}}$
+\end_inset
+
+ and impedance level 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ to meet the physical requirements (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proposed-design-approach"
+
+\end_inset
+
+b-right) by 
+\begin_inset Formula 
+\begin{equation}
+R_{\mathrm{s}}=\alpha\quad,\quad C_{\mathrm{p}}=\frac{C_{\mathrm{v}}^{({\rm n})}}{\alpha\omega_{\mathrm{c}}}\quad,\quad L_{\mathrm{p}}=\frac{\alpha L_{\mathrm{v}}^{({\rm n})}}{\omega_{\mathrm{c}}}.\label{eq:scaling}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Design Constraints
+\end_layout
+
+\begin_layout Standard
+Normally, the design of power filters is subjected to some certains contraints
+ yielding limits on the parameter values.
+ Based on the two degrees of freedom 
+\begin_inset Formula $\{\alpha,\omega_{\mathrm{c}}\}$
+\end_inset
+
+ in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:scaling"
+
+\end_inset
+
+, the normalized values 
+\begin_inset Formula $L^{(\mathrm{n})}$
+\end_inset
+
+ and 
+\begin_inset Formula $C^{(\mathrm{n})}$
+\end_inset
+
+ from 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:continued_fraction"
+
+\end_inset
+
+ are accordingly scaled to satisfy these physical constraints.
+ Nevertheless, a primary inductor (the inductor next to the converter) is
+ mainly designed to suppress the ripple current of the converter current
+ leading to large inductance and slow system bandwidth.
+ To resolve the trade-off, the physical primary inductance 
+\begin_inset Formula $L_{{\rm 1p}}$
+\end_inset
+
+ will be instead designed separately (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proposed-design-approach"
+
+\end_inset
+
+b).
+ 
+\end_layout
+
+\begin_layout Standard
+Some of the general constraints are considered in this section 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Boillat2015,Wu2012,Jalili2009,Liserre2005,Wu2014a"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Output Attenuation
+\end_layout
+
+\begin_layout Standard
+As the main objective of the output filter, it must contribute to a desired
+ attenuation to meet the standard of harmonic limits
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+At the time of writing, the new standard governing the harmonic limits in
+ the range of 
+\begin_inset Formula $\unit[9]{kHz}-\unit[150]{kHz}$
+\end_inset
+
+ is under development to fulfill the gap between the conventional low-frequenct
+ grid standard and the EMI standard.
+\end_layout
+
+\end_inset
+
+ (IEEE 1547.2 and IEEE-519 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "IEEE519-2014"
+
+\end_inset
+
+) and conducted EMI noise (CISPR Class A or Class B 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CISPR2004"
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Raggl2010"
+
+\end_inset
+
+).
+ The former recommends that the magnitude of the grid current harmonics
+ higher than the 
+\begin_inset Formula $35^{\mathrm{th}}$
+\end_inset
+
+ at the PCC must be limited to be less than 
+\begin_inset Formula $0.3\%$
+\end_inset
+
+ of the rated fundamental current if the short-circuit current of power
+ system is lower than 20 times the nominal grid-side fundamental current.
+ The latter governs the maximum conducted emission in the frequency range
+ of 
+\begin_inset Formula $\unit[150]{kHz}-\unit[30]{MHz}$
+\end_inset
+
+ following table xx in Chapter I.
+ 
+\end_layout
+
+\begin_layout Standard
+An asymptotic approximation of the attenuation at frequency 
+\begin_inset Formula $f_{\mathrm{d}}$
+\end_inset
+
+ or 
+\begin_inset Formula $\omega_{\mathrm{d}}$
+\end_inset
+
+ higher than the corner (cut-off) frequency is
+\begin_inset Formula 
+\begin{equation}
+\unit[\mathrm{Att}]{[\Omega]}=\omega_{\mathrm{d}}^{m}\left(\prod_{k=1}^{\frac{m+1}{2}}L_{k\mathrm{p}}\right)\left(\prod_{k=1}^{\frac{m-1}{2}}C_{k\mathrm{p}}\right)\label{eq:asympAtt}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $m$
+\end_inset
+
+ is the filter order.
+ Apart from 
+\begin_inset Formula $L_{\mathrm{1p}}$
+\end_inset
+
+, the physical inductance 
+\begin_inset Formula $L_{\mathrm{p}}$
+\end_inset
+
+ and capacitance 
+\begin_inset Formula $C_{\mathrm{p}}$
+\end_inset
+
+ can be realized based on 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:scaling"
+
+\end_inset
+
+.
+ Substituting 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:scaling"
+
+\end_inset
+
+ in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:asympAtt"
+
+\end_inset
+
+, we obtain
+\begin_inset Formula 
+\[
+\unit[\mathrm{Att}]{[\Omega]}=\frac{\omega_{\mathrm{d}}^{m}}{\omega_{\mathrm{c}}^{m-1}}L_{\mathrm{1p}}\left(\prod_{k=2}^{\frac{m+1}{2}}L_{k\mathrm{v}}^{\left(\mathrm{n}\right)}\right)\left(\prod_{k=1}^{\frac{m-1}{2}}C_{k\mathrm{v}}^{\left(\mathrm{n}\right)}\right)
+\]
+
+\end_inset
+
+and can compute the corresponding cut-off frequency from
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\omega_{\mathrm{c}}=\left[\omega_{\mathrm{d}}^{m}L_{\mathrm{1p}}\left(\prod_{k=2}^{\frac{m+1}{2}}L_{k\mathrm{v}}^{\left(\mathrm{n}\right)}\right)\left(\prod_{k=1}^{\frac{m-1}{2}}C_{k\mathrm{v}}^{\left(\mathrm{n}\right)}\right)\left(\mathrm{Att}\right)^{-1}\right]^{\frac{1}{m-1}}.\label{eq:cut-off-atten}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Capacitive Reactive Power (Total capacitance)
+\end_layout
+
+\begin_layout Standard
+To limit the current stress on the power circuit, the total capacitive reactive
+ power must not exceed its per-phase maximum 
+\begin_inset Formula $Q_{\mathrm{cap},\mathrm{max}}$
+\end_inset
+
+.
+ Considering the capacitive reactive power to be less than 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ of the nominal power per phase 
+\begin_inset Formula $P_{\mathrm{n}}$
+\end_inset
+
+, this constraint can be written per phase as
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+In this thesis, we consider it must not exceed 
+\begin_inset Formula $5\%$
+\end_inset
+
+ of the nominal output power 
+\begin_inset Formula $P_{\mathrm{n}}$
+\end_inset
+
+ at nominal operating conditions 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wu2012"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+V_{\mathrm{g}}^{2}\cdot\omega_{\mathrm{g}}\Sigma_{k=1}^{\frac{m-1}{2}}C_{k\mathrm{p}}\leq Q_{\mathrm{cap,max}}=\gamma P_{\mathrm{n}}\label{eq:Qmax}
+\end{equation}
+
+\end_inset
+
+or
+\begin_inset Formula 
+\begin{equation}
+V_{\mathrm{g}}^{2}\cdot\frac{\omega_{\mathrm{g}}}{\alpha\omega_{\mathrm{c}}}\Sigma_{k=1}^{\frac{m-1}{2}}C_{k\mathrm{v}}^{\left(\mathrm{n}\right)}\leq\gamma P_{\mathrm{n}}\,.\label{eq:Qmax2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Maximum voltage drop (Total inductance)
+\end_layout
+
+\begin_layout Standard
+The converter must be able to operate with its maximum output voltage (maximum
+ modulation depth in linear range) at rated current.
+ This constrains the maximum total inductance due to the allowable voltage
+ drop in the line reactance.
+ It can be expressed as 
+\begin_inset Formula 
+\begin{equation}
+\left|\underline{V}_{\mathrm{g}}+\mathrm{j}\omega_{\mathrm{g}}\underline{I}_{\mathrm{g,n}}\Sigma_{k=1}^{\frac{m+1}{2}}L_{k\mathrm{p}}\right|\leq\frac{V_{\mathrm{dc}}}{a}\label{eq:Lmax1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+or
+\begin_inset Formula 
+\begin{equation}
+\left|\underline{V}_{\mathrm{g}}+\mathrm{j}\omega_{\mathrm{g}}\underline{I}_{\mathrm{g,n}}\left(L_{\mathrm{1p}}+\frac{\alpha}{\omega_{\mathrm{c}}}\Sigma_{k=2}^{\frac{m+1}{2}}L_{k\mathrm{v}}^{\left(\mathrm{n}\right)}\right)\right|\leq\frac{V_{\mathrm{dc}}}{a}\label{eq:Lmax2}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\underline{V}_{\mathrm{g}}$
+\end_inset
+
+ is the rms grid-voltage phasor, 
+\begin_inset Formula $\underline{I}_{\mathrm{g,n}}$
+\end_inset
+
+ is the rms nominal grid-current phasor, 
+\begin_inset Formula $\omega_{\mathrm{g}}$
+\end_inset
+
+ is the grid frequency and 
+\begin_inset Formula $a$
+\end_inset
+
+ is 
+\begin_inset Formula $\sqrt{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\sqrt{6}$
+\end_inset
+
+ and 
+\begin_inset Formula $2\sqrt{2}$
+\end_inset
+
+ for a single-phase full-bridge VSCs, zero-sequence-modulated and sinusoidal-mod
+ulated multi-phase converters respectively.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Control bandwidth
+\end_layout
+
+\begin_layout Standard
+In some applications, the converter bandwidth can be strictly regulated.
+ For instance, IEEE 1547 (IEEE Standard for Interconnected Distributed Resources
+ with Electric Power Systems] specifies the the converter output voltage
+ must reach the reference value of within 
+\begin_inset Formula $\unit[160]{\mu s}$
+\end_inset
+
+ for programmable AC power sources 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Boillat2015"
+
+\end_inset
+
+.
+ (To be checked)
+\end_layout
+
+\begin_layout Subsubsection
+Resonant frequency
+\end_layout
+
+\begin_layout Standard
+For the considered filter design, as a rule of thumb, the resonant frequency
+ 
+\begin_inset Formula $f_{\mathrm{res}}$
+\end_inset
+
+ or 
+\begin_inset Formula $\omega_{\mathrm{res}}$
+\end_inset
+
+ should be in a range between ten times the line frequency and one half
+ of the switching frequency, i.e.
+\begin_inset Formula 
+\begin{equation}
+\frac{f_{\mathrm{g}}}{10}\leq f_{\mathrm{res}}\leq\frac{f_{\mathrm{sw}}}{2}\label{eq:condFres}
+\end{equation}
+
+\end_inset
+
+so as to not induce resonances in the lower and higher parts of the harmonic
+ spectrum 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wu2012"
+
+\end_inset
+
+.
+ Note that the resonant frequency is closely related to the available converter
+ bandwidth.
+ A high resonant frequency indicates the low realization effort (low volume)
+ and low control effort to high frequency command (high converter bandwidth)
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kolar2010"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Component loss and temperature rise
+\end_layout
+
+\begin_layout Standard
+Finally, the losses in a component must not cause excessive temperature
+ rises.
+ The temperature rise is the main factor limitting the hardware realization
+ of a component.
+ For the 
+\begin_inset Formula $LCL$
+\end_inset
+
+ filter, 
+\begin_inset Formula $L_{\mathrm{1p}}$
+\end_inset
+
+ is 
+\end_layout
+
+\begin_layout Section
+Design Example of 
+\begin_inset Formula $LCL$
+\end_inset
+
+-Filter Component Values
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:result"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This section exemplifies the design example of the 
+\begin_inset Formula $LCL$
+\end_inset
+
+ filter for a three-phase grid-connected converter in Fig.
+ xx.
+ Without loss of generality, the design is focused on a DM filter using
+ a single-phase equivalent circuit in Fig.
+ xxa.
+ For the filter configuration in Fig.
+ xx, there is no additional degree of freedom for a CM filter, such as CM
+ chokes and CM capacitor, thus the CM filter is spontaneously designed.
+ For the 
+\begin_inset Formula $3^{\mathrm{rd}}$
+\end_inset
+
+-order filter, this does not pose a problem because the corresponding virtual
+ circuit can still be designed at will by modifying 
+\begin_inset Formula $L_{\mathrm{1v}}^{\mathrm{CM}}$
+\end_inset
+
+ and 
+\begin_inset Formula $R_{\mathrm{1v}}^{\mathrm{CM}}$
+\end_inset
+
+ accordingly.
+ With such addtional CM components as degrees of freedom, the co-design
+ method can perform independently to design DM and CM filters.
+ Therefore, the superscripts `DM' and `CM' are omitted.
+\end_layout
+
+\begin_layout Standard
+The step-by-step procedure explained in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:comp_sizing"
+
+\end_inset
+
+ has been applied to design a DM filter for a three-phase grid-connected
+ converter with the specification in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Electrical-Specifications-of"
+
+\end_inset
+
+.
+ The components from 
+\begin_inset Formula $L_{{\rm 1p}}$
+\end_inset
+
+ onward to the grid can be realized as the physical 
+\begin_inset Formula $LCL$
+\end_inset
+
+ filter (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proposed-design-approach"
+
+\end_inset
+
+c) as desired.
+ 
+\end_layout
+
+\begin_layout Standard
+For simplicity, in this section, the design constraint includes an additional
+ constraint on the maximum peak-to-peak converter current ripple.
+ Typically, the converter-side inductor is the critical element suffering
+ the largest current ripple, which may lead to excessive losses and temperature
+ rises.
+ The losses of the converter-side inductance amounts to around 
+\begin_inset Formula $80\%$
+\end_inset
+
+ of the whole filter losses.
+ Therefore, this indirectly limits the losses of the converter-side inductor
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wei2018"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Jayalath2017"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Design Example
+\end_layout
+
+\begin_layout Enumerate
+Select a desired admittance 
+\begin_inset Formula $Y(s)$
+\end_inset
+
+ (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proposed-design-approach"
+
+\end_inset
+
+a); we select the second-order response of the system to have damping factor
+ 
+\begin_inset Formula $\zeta=0.8$
+\end_inset
+
+ and corner frequency at 
+\begin_inset Formula $\omega_{0}=\unit[1]{rad/s}$
+\end_inset
+
+.
+ The remaining single real pole is chosen to be at -1 leading to the minimal
+ ratio 
+\begin_inset Formula $L_{\mathrm{2p}}/L_{\mathrm{1p}}$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "BrunoEPE2016"
+
+\end_inset
+
+.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+ (Another good candidate is the maximally flat low-pass response or Butterworth
+ response, which is equivalent to the so-called modulus optimum and symmetrical
+ optimum concepts 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Astrom1995"
+
+\end_inset
+
+.) 
+\end_layout
+
+\end_inset
+
+The desired transfer function can be written as 
+\begin_inset Formula 
+\begin{equation}
+Y(s)=\frac{1}{1+s}\cdot\frac{1}{1+1.6s+s^{2}}=\frac{1}{1+2.6s+2.6s^{2}+s^{3}}.\label{eq:selectedYs}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Normalize and synthesize the network (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proposed-design-approach"
+
+\end_inset
+
+b-left); Since the 3-db cut-off frequency of transfer function in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:selectedYs"
+
+\end_inset
+
+ is at 
+\begin_inset Formula $\unit[0.646]{rad/s}$
+\end_inset
+
+, it is normalized to 
+\begin_inset Formula $\unit[1]{rad/s}$
+\end_inset
+
+ by substituting 
+\begin_inset Formula $s$
+\end_inset
+
+ with 
+\begin_inset Formula $0.646s$
+\end_inset
+
+, yielding
+\begin_inset Formula 
+\begin{equation}
+Y_{{\rm n}}(s)=\frac{1}{1+1.68s+1.09s^{2}+0.27s^{3}}.\label{eq:normalized tranf}
+\end{equation}
+
+\end_inset
+
+Since the numerator is the even polynomial function, from (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Yparam"
+
+\end_inset
+
+) the self-admittance of 
+\begin_inset Formula $LC$
+\end_inset
+
+ networks seen from the source voltage 
+\begin_inset Formula $y_{11}$
+\end_inset
+
+ must be the ratio of even to odd polynomial parts of the denominator.
+ From (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:normalized tranf"
+
+\end_inset
+
+), the network element can be synthesized as 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+\frac{1}{y_{11}(s)}=\frac{0.2696s^{3}+1.6796s}{1.085s+1}=0.2485s+\cfrac{1}{0.7582s+\cfrac{1}{1.431s}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{y_{11}(s)}=\frac{0.27s^{3}+1.68s}{1.09s^{2}+1}=0.25s+\cfrac{1}{0.76s+1/(1.43s)}.\label{eq:continued_fraction_value}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:current_ripple"
+
+\end_inset
+
+Design a physical primary inductor 
+\begin_inset Formula $L_{\mathrm{1p}}$
+\end_inset
+
+ from (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ripple"
+
+\end_inset
+
+); 
+\begin_inset Formula $L_{{\rm 1p}}$
+\end_inset
+
+ is designed to suppress a triangular inductor converter current rippIn
+ this letterle 
+\begin_inset Formula $\triangle I_{\mathrm{conv}}$
+\end_inset
+
+ below 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ of the rated peak current 
+\begin_inset Formula $I_{\mathrm{conv,peak}}$
+\end_inset
+
+ by the wost-case ripple 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wu2012"
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray}
+L_{{\rm 1p}} & \geq & \dfrac{V_{\mathrm{dc}}}{4\epsilon f_{\mathrm{sw}}I_{\mathrm{conv,pk}}}.\label{eq:ripple}
+\end{eqnarray}
+
+\end_inset
+
+dsfawhere 
+\begin_inset Formula $V_{\mathrm{dc}}$
+\end_inset
+
+ is the dc-link voltage, 
+\begin_inset Formula $f_{\mathrm{sw}}$
+\end_inset
+
+ is the switching frequency and 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ is the percentage of the peak-to-peak converter current ripple relative
+ to the peak output current 
+\begin_inset Formula $I_{\mathrm{conv,pk}}$
+\end_inset
+
+.
+ Herein, 
+\begin_inset Formula $\epsilon=40\%$
+\end_inset
+
+ is selected from the compromise among the achievable volume, losses and
+ current-measurement accuracy 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Boillat2016"
+
+\end_inset
+
+.
+ Accordingly, the physical primary inductance 
+\begin_inset Formula $L_{{\rm 1p}}=\unit[0.9]{mH}$
+\end_inset
+
+ is chosen due to availability leading to 
+\begin_inset Formula $37\%$
+\end_inset
+
+ ripple current.
+\end_layout
+
+\begin_layout Enumerate
+Select the cut-off frequency (bandwidth) of the virtual circuit 
+\begin_inset Formula $\omega_{\mathrm{c}}$
+\end_inset
+
+; It is utilized to satisfy both the attenuation requirement 
+\begin_inset Formula $\unit[\mathrm{Att}]{[\Omega^{-1}]}$
+\end_inset
+
+ of the harmonic content of the grid current at the angular frequency of
+ interest 
+\begin_inset Formula $\omega_{\mathrm{i}}=2\pi f_{\mathrm{i}}$
+\end_inset
+
+, and the bandwidth
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The robustness is relevant to the margin between the desired cut-off frequency
+ 
+\begin_inset Formula $f_{\mathrm{c}}$
+\end_inset
+
+ and the sampling frequency 
+\begin_inset Formula $f_{\mathrm{samp}}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+ of the model-based digital control system.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+and often the dominant harmonic is the one at the switching frequency 
+\begin_inset Formula $f_{sw}$
+\end_inset
+
+ or 
+\begin_inset Formula $\omega_{d}=\omega_{sw}=2\pi f_{sw}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+The former is derived based on the asymptotic high-frequency behaviour including
+ the effect of 
+\begin_inset Formula $L_{\mathrm{1p}}$
+\end_inset
+
+ in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:asympAtt"
+
+\end_inset
+
+, whereas the latter is is around 
+\begin_inset Formula $1/4$
+\end_inset
+
+ of angular sampling frequency, 
+\begin_inset Formula $\omega_{{\rm s}}=2\pi f_{{\rm s}}$
+\end_inset
+
+, based on our observations (Chapter 2 xx).
+ Therefor, the required angular cut-off frequency is
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+\omega_{c,r}=\left(\omega_{sw}^{k}(L_{1,p}L_{2}^{(n)}\cdots L_{k}^{(n)})(C_{1}^{(n)}\cdots C_{k-1}^{(n)})\left|G_{iv}(j\omega_{sw})\right|\right)^{\frac{1}{m-1}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+the requirements of IEEE 519-1992 to attenuate the harmonics around the
+ switching frequency down to 0.3% 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Liserre2005"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\omega_{\mathrm{c}}\leq\min\left(\omega_{\mathrm{c,r}},\frac{\omega_{\mathrm{s}}}{4}\right)\label{eq:cut_off}
+\end{equation}
+
+\end_inset
+
+with 
+\begin_inset Formula $\omega_{\mathrm{c,r}}=\sqrt{\omega_{\mathrm{i}}^{3}L_{\mathrm{1p}}L_{\mathrm{2v}}^{(\mathrm{n})}C_{1\mathrm{v}}^{(\mathrm{n})}\cdot\left(\unit[\mathrm{Att}]{[\Omega]}\right)^{-1}}.$
+\end_inset
+
+ from 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:asympAtt"
+
+\end_inset
+
+.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+\omega_{c,r}=\left[\omega_{d}^{3}L_{1,p}L_{2}^{(n)}C_{1}^{(n)}\left(\mathrm{Att}\right)\right]^{\frac{1}{2}}.\label{eq:cut-off-atten-1-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+From (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:scaling"
+
+\end_inset
+
+), the normalized component values become 
+\begin_inset Formula $L_{\mathrm{v}}^{\prime}=L_{\mathrm{v}}^{(\mathrm{n})}/\omega_{\mathrm{c}}$
+\end_inset
+
+ and 
+\begin_inset Formula $C_{\mathrm{v}}^{\prime}=C_{\mathrm{v}}^{(\mathrm{n})}/\omega_{\mathrm{c}}$
+\end_inset
+
+, and are used in the next step.
+ The design limits the worst-case harmonic at the switching frequency due
+ to the modulation of the single half-bridge leg for general applications
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Holmes2003"
+
+\end_inset
+
+ below 0.15% of the rated fundamental current 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+IEEE 519-1992 recommends each harmonic current of higher than 35th below
+ 0.3%
+\begin_inset Formula $I_{conv,{\rm n}}$
+\end_inset
+
+.
+ Herein, 50% margin factor is considered.
+ 
+\end_layout
+
+\end_inset
+
+.
+ Accordingly, the attenuation requirement, 
+\begin_inset Formula $\mathrm{Att}$
+\end_inset
+
+, of the harmonic content of the grid current at the switching frequency
+ is around
+\begin_inset Formula $\unit[79]{dB}$
+\end_inset
+
+.
+ The maximum cut-off frequency 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+from (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:cut-off-atten"
+
+\end_inset
+
+) 
+\end_layout
+
+\end_inset
+
+is thus 
+\begin_inset Formula $\unit[1.67]{kHz}$
+\end_inset
+
+.
+ From (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:cut_off"
+
+\end_inset
+
+) the required cut-off frequency is 
+\begin_inset Formula $f_{{\rm c}}=\min\left(\unit[1.67]{kHz},\frac{\unit[16]{kHz}}{4}\right)=\unit[1.67]{kHz}$
+\end_inset
+
+.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+\omega_{c,r}=\left(\omega_{sw}^{k}(L_{1,p}L_{2}^{(n)}\cdots L_{k}^{(n)})(C_{1}^{(n)}\cdots C_{k-1}^{(n)})\left|G_{iv}(j\omega_{sw})\right|\right)^{\frac{1}{k-1}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+the requirements of IEEE 519-1992 to attenuate the harmonics around the
+ switching frequency down to 0.3% 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Liserre2005"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+With (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:scaling"
+
+\end_inset
+
+) the normalized component values become 
+\begin_inset Formula $\{L_{1}^{\prime},\ldots,L_{\frac{k+1}{2}}^{\prime}\}$
+\end_inset
+
+ and 
+\begin_inset Formula $\{C_{1}^{\prime},\ldots,C_{\frac{k-1}{2}}^{\prime}\}$
+\end_inset
+
+ with 
+\begin_inset Formula $L^{\prime}=\frac{L^{(n)}}{\omega_{c}}$
+\end_inset
+
+ and 
+\begin_inset Formula $C^{\prime}=\frac{C^{(n)}}{\omega_{c}}$
+\end_inset
+
+ to be used in the next step.
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+To limit the harmonic content at the switching frequency 
+\begin_inset Formula $f_{{\rm sw}}=\unit[16]{kHz}$
+\end_inset
+
+ of the grid current below 0.1% of the peak nominal current in this example,
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+the attenuation requirement of the harmonic content of the grid current
+ at the switching frequency 
+\begin_inset Formula $f_{d}=f_{sw}=\unit[16]{kHz}$
+\end_inset
+
+ is at least 
+\begin_inset Formula $\unit[-78]{dB}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+the maximum cut-off frequency is at 
+\begin_inset Formula $\unit[1.75]{kHz}$
+\end_inset
+
+, and the cut-off frequency at 
+\begin_inset Formula $f_{{\rm c}}=\unit[1.7]{kHz}$
+\end_inset
+
+ is thus chosen.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Select the impedance scaling
+\begin_inset Formula $\alpha$
+\end_inset
+
+; this quantity can be chosen based on many considerations ranging from
+ component feasibility to the rejection of output voltage disturbances.
+ Also it can limit the circulating current in paralleled converters applications
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "BrunoEPE2016"
+
+\end_inset
+
+.
+ Herein, it is employed to limit the total capacitive reactive power to
+ be less than 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ of the nominal power per phase 
+\begin_inset Formula $P_{\mathrm{n}}$
+\end_inset
+
+ in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:Qmax2"
+
+\end_inset
+
+ and the worst-case of line voltage drop at phase 
+\begin_inset Formula $\unit[90]{\textdegree C}$
+\end_inset
+
+ leading from line inductors in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:Lmax2"
+
+\end_inset
+
+, leading to 
+\begin_inset Formula $\alpha_{\mathrm{min}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha_{\mathrm{max}}$
+\end_inset
+
+ respectively.
+ It can be chosen as follows:
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+\frac{U_{g}^{2}\omega_{o}\sum C_{j}^{\prime}}{5\%P_{rated}}\leq\alpha\leq\frac{1}{\sum_{j\neq1}L_{j}^{\prime}}\left(\frac{1}{\omega_{o}I_{ref}}\sqrt{\frac{U_{dc}^{2}}{2a}-U_{g}^{2}}-L_{1,p}\right)\label{eq:alpha-1-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\alpha\in[\alpha_{\mathrm{min}},\alpha_{\mathrm{max}}]\label{eq:alpha_scale}
+\end{equation}
+
+\end_inset
+
+with
+\begin_inset Formula 
+\begin{align}
+\alpha_{\mathrm{min}} & =\frac{V_{\mathrm{g}}^{2}\omega_{\mathrm{g}}C_{\mathrm{1v}}^{\prime}}{\gamma P_{\mathrm{n}}}\label{eq:alpha_min}\\
+\alpha_{\mathrm{max}} & =\frac{1}{L_{\mathrm{2v}}^{\prime}}\left(\frac{1}{\omega_{\mathrm{g}}I_{\mathrm{conv,n}}}\left(\frac{V_{\mathrm{dc}}}{a}-V_{\mathrm{g}}\right)-L_{1\mathrm{p}}\right).\label{eq:alpha_max}
+\end{align}
+
+\end_inset
+
+If 
+\begin_inset Formula $\alpha_{\mathrm{min}}>\alpha_{\mathrm{max}}$
+\end_inset
+
+, the design procedure will be iterated by changing the reference transfer
+ function 
+\begin_inset Formula $Y(s)$
+\end_inset
+
+ or relaxing some constraints such as 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ripple"
+
+\end_inset
+
+) or 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:alpha_min"
+
+\end_inset
+
+).
+ The total capacitive reactive power is limited to 
+\begin_inset Formula $4\%$
+\end_inset
+
+ of the rated power.
+ This leads to 
+\begin_inset Formula $\alpha_{{\rm min}}=6$
+\end_inset
+
+.
+ From (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:alpha_max"
+
+\end_inset
+
+) and table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Electrical-Specifications-of"
+
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{{\rm max}}=100$
+\end_inset
+
+ is known.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Check the filter resonant frequency based on the obtained 
+\begin_inset Formula $\omega_{\mathrm{c}}$
+\end_inset
+
+ and
+\begin_inset Formula $\alpha$
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:scaling"
+
+\end_inset
+
+; 
+\begin_inset Formula 
+\[
+\frac{f_{\mathrm{g}}}{10}\leq f_{\mathrm{res}}\leq\frac{f_{\mathrm{sw}}}{2}
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+f_{\mathrm{res}}=\frac{1}{2\pi}\sqrt{\frac{L_{\mathrm{1p}}+L_{\mathrm{2p}}}{L_{\mathrm{1p}}L_{\mathrm{2p}}C_{\mathrm{p}}}}
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+Due to availability, the capacitor is chosen to be 
+\begin_inset Formula $C_{\mathrm{p}}=\unit[10]{\mu F}$
+\end_inset
+
+ corresponding to 
+\begin_inset Formula $\alpha=R_{{\rm v}}=7.09$
+\end_inset
+
+.
+ Thus the inductance values are immediately obtained as 
+\begin_inset Formula $L_{\mathrm{1v}}=\unit[316]{\mu H}$
+\end_inset
+
+ and 
+\begin_inset Formula $L_{\mathrm{2v}}=\unit[950]{\mu H}$
+\end_inset
+
+.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+The virtual inductance 
+\begin_inset Formula $L_{{\rm vs}}=\unit[-684]{\mu H}$
+\end_inset
+
+ is emulated away to improve the bandwidth of the system.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The component values 
+\begin_inset Formula $R_{{\rm s}}$
+\end_inset
+
+, 
+\begin_inset Formula $L_{\mathrm{1v}}$
+\end_inset
+
+, 
+\begin_inset Formula $L_{\mathrm{2v}}$
+\end_inset
+
+ and 
+\begin_inset Formula $C_{\mathrm{1v}}$
+\end_inset
+
+ in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proposed-design-approach"
+
+\end_inset
+
+b can be calculated from (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:scaling"
+
+\end_inset
+
+).
+ Simultaneously the physical component values are readily obtained, i.e.
+ 
+\begin_inset Formula $L_{{\rm 1p}}$
+\end_inset
+
+ from step 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "enu:current_ripple"
+
+\end_inset
+
+ , 
+\begin_inset Formula $L_{\mathrm{2p}}=L_{\mathrm{2v}}$
+\end_inset
+
+ and 
+\begin_inset Formula $C_{\mathrm{p}}=C_{\mathrm{v}}$
+\end_inset
+
+; the final designs of physical and virtual circuits are summarized in table
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Component-Values-of"
+
+\end_inset
+
+.
+ The theoretical closed-loop response has the bandwidth of 
+\begin_inset Formula $\omega_{{\rm c}}=\unit[1.65]{kHz}$
+\end_inset
+
+ (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:freq_res"
+
+\end_inset
+
+).
+ This is reduced from the designed value of 
+\begin_inset Formula $\unit[1.7]{kHz}$
+\end_inset
+
+ due to discretization of (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Giv"
+
+\end_inset
+
+) in digital control.
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Component Values of The Designed 
+\begin_inset Formula $LCL$
+\end_inset
+
+ filter and Its Virtual Reference Circuit for Active Damping
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Component-Values-of"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Physical filter
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Virtual reference circuit
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Terminating resistor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[0]{\Omega}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{{\rm s}}=\unit[7.09]{\Omega}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Primary inductance 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $L_{{\rm p}}=\unit[0.9]{mH}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $L_{{\rm 1}}=\unit[0.165]{mH}$
+\end_inset
+
+
+\begin_inset Formula $^{\ast}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Output inductance 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[0.95]{mH}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Filter capacitance 
+\begin_inset Formula $C$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[10]{\mu F}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $^{\ast}$
+\end_inset
+
+This leads to the partitioning of the virtual primary inductance with 
+\begin_inset Formula $L_{{\rm vs}}=L_{1}-L_{{\rm p}}=\unit[-0.735]{mH}.$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Experimental results
+\end_layout
+
+\begin_layout Standard
+The designed 
+\begin_inset Formula $LCL$
+\end_inset
+
+ filter is installed in and tested with the Triphase rapid-prototype platform
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NV"
+
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Electrical Specifications of The Designed System 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Electrical-Specifications-of"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="2">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Rated power per phase 
+\begin_inset Formula $P_{{\rm rated}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[5]{kW}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Line-to-Line grid voltage 
+\begin_inset Formula $U_{{\rm g}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[230]{V_{{\rm rms}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nominal converter current 
+\begin_inset Formula $I_{{\rm conv,n}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[21]{A}_{{\rm rms}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nominal dc-link voltage 
+\begin_inset Formula $U_{{\rm dc}}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[720]{V}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Grid frequency 
+\begin_inset Formula $f_{{\rm g}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[50]{Hz}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Switching (carrier) frequency 
+\begin_inset Formula $f_{{\rm sw}}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[16]{kHz}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sampling (control) frequency 
+\begin_inset Formula $f_{{\rm s}}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[16]{kHz}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement t
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename D:/virtual_circuit/ecce2016/freq_res_pdf2.pdf
+	lyxscale 30
+	width 90line%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Measured small-signal reference tracking transfer function of output current
+ to its reference 
+\begin_inset Formula $\nicefrac{\bar{i}_{{\rm g}}}{i_{{\rm g}}^{\ast}}$
+\end_inset
+
+ (measured with a delta-sigma ADC).
+ The measured bandwidth is 
+\begin_inset Formula $\unit[1.54]{kHz}$
+\end_inset
+
+.
+ The designed bandwidth of the virtual reference circuit is 
+\begin_inset Formula $\unit[1.7]{kHz}$
+\end_inset
+
+, whereas it is reduced to 
+\begin_inset Formula $\unit[1.65]{kHz}$
+\end_inset
+
+ in the resultant digital control system.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:freq_res"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To validate the resultant reference-tracking transfer function and the bandwidth
+ of the closed-loop system, the small-signal sinusoidal current with amplitude
+ of 
+\begin_inset Formula $\unit[4]{A}$
+\end_inset
+
+ together with a dc component of 
+\begin_inset Formula $\unit[20]{A}$
+\end_inset
+
+ is set for the reference 
+\begin_inset Formula $i_{{\rm g}}^{\ast}$
+\end_inset
+
+.
+ This avoids the effect of the nonlinear dynamic of the inductor and deadtime.
+ The output current is measured as an average value 
+\begin_inset Formula $\bar{i}_{{\rm g}}$
+\end_inset
+
+ with a delta-sigma ADC (equivalent to moving average Switching frequency
+ 
+\begin_inset Formula $f_{\mathrm{sw}}=\unit[16]{kHz}$
+\end_inset
+
+over sampling interval 
+\begin_inset Formula $T_{{\rm s}}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+The measured bandwidth (measured at
+\begin_inset Formula $\unit[3]{dB}$
+\end_inset
+
+ drop) of the controlled output current 
+\begin_inset Formula $\bar{i}_{{\rm g}}$
+\end_inset
+
+ is approximately 
+\begin_inset Formula $\unit[1.54]{kHz}$
+\end_inset
+
+ (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:freq_res"
+
+\end_inset
+
+), which deviates 6.67% from the theoretical value of 
+\begin_inset Formula $\unit[1.65]{kHz}$
+\end_inset
+
+.
+ The measured phase response resembles excellently with the theoretical
+ one (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:freq_res"
+
+\end_inset
+
+).
+ The phase error is less than 
+\begin_inset Formula $4\%$
+\end_inset
+
+ above 
+\begin_inset Formula $\unit[33]{Hz}$
+\end_inset
+
+, whereas below fluctuates between 
+\begin_inset Formula $\pm30\%$
+\end_inset
+
+ because the phase in this region is almost zero.
+ Clearly, the low-frequency region is flat validating the approximation
+ of resistive circuit seen by the supervisory control loop
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+This systematic method leads more accurate than the conventional method
+ in [LCL,2006, Fig.
+ 23 ].
+ 
+\end_layout
+
+\end_inset
+
+.
+ The results of Monte-carlo simulation shows the effect of filter-parameter
+ mismatches based on the mathematical model of the closed-loop system.
+ The 1000 sets of component values are generated from uniform probability
+ distribution with the interval of 10% deviation from the designed values
+ (Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Component-Values-of"
+
+\end_inset
+
+).
+ The experimental results coincide with the results from the simulation
+ (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:freq_res"
+
+\end_inset
+
+).
+ The discrepancies in low-frequency offset and high-frequency behavior mainly
+ come from the dead-time effect and frequency-dependent inductance and resistanc
+e of the inductors.
+ Although the simulation results show the incomplete damp of the resonance
+ peak due to parameter mismatches, the magnitude is at most 
+\begin_inset Formula $\unit[-5]{dB}$
+\end_inset
+
+ and even lower in the experimental result.
+ Without co-design method and proper virtual inductance 
+\begin_inset Formula $L_{1}$
+\end_inset
+
+, it is difficult to achieve the arbitrary desired frequency response (cf.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Fig. 7\\&11"
+key "He2012"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename D:/virtual_circuit/ecce2016/exp_har_ss_pdf.pdf
+	lyxscale 70
+	width 100line%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Measured actual grid current 
+\begin_inset Formula $i_{{\rm g}}$
+\end_inset
+
+ and grid voltage 
+\begin_inset Formula $v_{{\rm g}}$
+\end_inset
+
+.
+ The harmonic-compensation control is carried out against the polluted grid
+ voltage.
+ The attenuation at the switching frequency is around 0.001% within the desired
+ range.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ss_waveform"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+The measured actual current 
+\begin_inset Formula $i_{{\rm g}}$
+\end_inset
+
+ with harmonic-compensation control explained in section xx shows excellent
+ sinusoidal waveform with a total harmonic distortion (THD) of 
+\begin_inset Formula $0.97\%$
+\end_inset
+
+ at nominal current against the measured grid voltage 
+\begin_inset Formula $v_{{\rm g}}$
+\end_inset
+
+ with a THD of 1.8% (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ss_waveform"
+
+\end_inset
+
+).
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+The harmonic control is enabled by adding 
+\begin_inset Formula $\Delta v_{{\rm vc}}$
+\end_inset
+
+ computed from (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:har_con"
+
+\end_inset
+
+) in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:current control law"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\end_inset
+
+From FFT result, the attenuation at the switching frequency is around 0.001%
+ within the desired range.
+ 
+\end_layout
+
+\begin_layout Section
+Design Example of High-Order Filters with Multiobjective Optimization
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Electrical Specifications of The Considered Single-Phase Grid-Connected
+ VSC 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:sysParamsMOO"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="2">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Rated power 
+\begin_inset Formula $P_{{\rm rated}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[5]{kW}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+grid voltage 
+\begin_inset Formula $V_{{\rm g}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[230]{V_{{\rm rms}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nominal converter current 
+\begin_inset Formula $I_{{\rm conv,n}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[21]{A}_{{\rm rms}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nominal dc-link voltage 
+\begin_inset Formula $V_{{\rm dc}}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[400]{V}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Grid frequency 
+\begin_inset Formula $f_{{\rm g}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[50]{Hz}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Switching (carrier) frequency 
+\begin_inset Formula $f_{{\rm sw}}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[16]{kHz}$
+\end_inset
+
+ and 
+\begin_inset Formula $\unit[100]{kHz}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sampling frequency 
+\begin_inset Formula $f_{{\rm s}}$
+\end_inset
+
+ (single update)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[16]{kHz}$
+\end_inset
+
+ and 
+\begin_inset Formula $\unit[100]{kHz}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+In the previous sections, the design of filter component values are elaborated
+ and exemplified.
+ detailed harware realization is not considered for simplification.
+ Nonetheless, this section considers the filter design with multiobjective
+ optimization including hardware realization aspect of the filter.
+ Also, this section aims to demonstrates the possibility of applying the
+ proposed co-design method to design higher-order filters.
+ 
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Formula $5^{\mathrm{th}}$
+\end_inset
+
+-order 
+\begin_inset Formula $LCLCL$
+\end_inset
+
+ filter (or called two-stage filter typical for DM conducted EMI filters
+ in the considered range of 
+\begin_inset Formula $\unit[150]{kHz}-\unit[30]{MHz}$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Boillat2016"
+
+\end_inset
+
+) is considered and compared with the conventional 
+\begin_inset Formula $3^{\mathrm{rd}}$
+\end_inset
+
+-order 
+\begin_inset Formula $LCL$
+\end_inset
+
+ filter.
+ According to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Boillat2016"
+
+\end_inset
+
+, the 
+\begin_inset Formula $LCL$
+\end_inset
+
+ filter is found infeasible for applications with high switching frequency
+ requiring both high bandwidth and high attenuation (conducted EMI CISPR
+ 11 standard); two constraints cannot be simultaneously met.
+ The attenuation required when using high switching frequency is significantly
+ higher particularly close to 
+\begin_inset Formula $\unit[150]{kHz}$
+\end_inset
+
+ in the range of conducted EMI CISPR 11 standard.
+\end_layout
+
+\begin_layout Standard
+Although the 
+\begin_inset Formula $5^{\mathrm{th}}$
+\end_inset
+
+-order 
+\begin_inset Formula $LCLCL$
+\end_inset
+
+ filter has proved promising in such applications, the hardware design becomes
+ more challenging.
+ The design based on analytical formula is straightforward for the 
+\begin_inset Formula $LCL$
+\end_inset
+
+ filter by assuming the grid current (current of the grid-side inductor)
+ perfectly sinusoidal.
+ On the contrary, This assumption is not neccessary straightforward considering
+ a middle inductor of the 
+\begin_inset Formula $LCLCL$
+\end_inset
+
+ filter as a new degree of freedom.
+ To be able to systematically cope with the increased number of the degrees
+ of freedom and constraints, the filter designed by means of multiobjective
+ optimization has been proposed in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Boillat2015"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In addition to the high complexity of hardware design, the control design
+ together with the resonance damping is complicated now that there are two
+ resonances in the system.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Boillat2016a"
+
+\end_inset
+
+, one resonance is damped actively, while the other is damped passively.
+ In turn, the total volume of the element for passive damping amounts to
+ 
+\begin_inset Formula $9\%$
+\end_inset
+
+ of the total filter volume.
+ Moreover, the computation of the controller gains for voltage control and
+ active damping in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Boillat2016a"
+
+\end_inset
+
+ is tedious.
+ Selecting the P and PI control structures, it employs a numerical optmization
+ with a brute-force discretization of the control parameters.
+\end_layout
+
+\begin_layout Standard
+In light of the aboved mentioned, the proposed co-design method based on
+ the VCC method can offer more intuitive way of controller design and simultaneo
+usly provide a guidline on hardware design.
+ The normalized virtual circuit derived from the chosen transfer function
+ can be an input of a multiobjective optimization to achieve the optimal
+ design.
+ 
+\end_layout
+
+\begin_layout Standard
+The filter realization might be influenced by various design constraints,
+ filter parameters, modulation technique and operating conditions, such
+ as rated current, switching frequency and DC-bus voltage.
+ In this section, we study on the impact of the switching frequency, which
+ influences the required attenuation.
+\end_layout
+
+\begin_layout Standard
+This section shows two examples of a DM filter design for single-phasline
+ impedance stabilization network (e grid-connected converters with the switching
+ frequencies of 
+\begin_inset Formula $\unit[16]{kHz}$
+\end_inset
+
+ and 
+\begin_inset Formula $\unit[100]{kHz}$
+\end_inset
+
+ respectively (Fig.
+ xx).
+ Only the DM filter is considered because it typically amounts to the major
+ volume of the filter part and is, therefore, the critical factor determining
+ the power density of the filter 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Raggl2010"
+
+\end_inset
+
+.
+ Moreover, the bipolar modulation is considered.
+ Despite resulting in high losses, it shows the worst-case scenario of losses
+ and the CM emission is minimal 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xia2017"
+
+\end_inset
+
+.
+ To this account, a margin of 
+\begin_inset Formula $\unit[15]{dB}$
+\end_inset
+
+ is included in the required attenuation to account for any CM emissons
+ instead 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Boillat2015"
+
+\end_inset
+
+.
+ Note that the parasitics components have not been considered in this study
+ for the sake of simplicity.
+ 
+\end_layout
+
+\begin_layout Standard
+Although the simplified analysis shows the maximum attenuation of a given
+ total inductance is achieved by using equal inductance in all stages.
+\end_layout
+
+\begin_layout Standard
+the filter is realized as a balanced network (Fig.
+ xx).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+In DCM, the boost inductor can be selected smaller, but the whole filter
+ section must be designed larger to attenuate higher harmonic components.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In [Choi;Achieving high effcint using SiC MOSFETs...V2G Inverter], the switching
+ frequency is at 100 kHz with DC-bus voltage 800 V and rated power of 20
+ kW.
+\end_layout
+
+\begin_layout Standard
+The Pareto-Front gives an immediate impression of the compromise between
+ competing performance indices 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kolar2010"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The section starts with the summary of the loss and volume models for inductors
+ and capacitors needed for this optimization.
+ Subsequently, the detailed optimization procedure and the results are discussed.
+ Two examples of employing two switching frequencies, namely 
+\begin_inset Formula $\unit[16]{kHz}$
+\end_inset
+
+ and 
+\begin_inset Formula $\unit[100]{kHz}$
+\end_inset
+
+, are considered.
+ This causes different required filter attenuation, which affects the filter
+ volume and losses.
+\end_layout
+
+\begin_layout Standard
+The main objectives of this section are to get a realistic idea of the volume
+ occupied and the losses generatd by the filter, and to study the impact
+ of the filter order on its Pareto optimality.
+ Consequently, the section only provides a brief summary of the applied
+ procedure and the simulation and the realization results the 
+\end_layout
+
+\begin_layout Standard
+bipolar symmetrical sampling
+\end_layout
+
+\begin_layout Standard
+Full-bridge single-phase grid-connected VSCs
+\end_layout
+
+\begin_layout Standard
+Based on the co-design method, the optimization process can be divided into
+ two main steps: (a) Determing filter component values based on Section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:comp_sizing"
+
+\end_inset
+
+ and (b) Hardware realization.
+ In essence, for the proposed co-design method, there are three positive
+ degrees of freedom that determines the physical filter component values,
+ i.e.
+ 
+\begin_inset Formula $\left\{ L_{1\plant},\beta_{1},\beta_{2}\right\} $
+\end_inset
+
+, where 
+\begin_inset Formula $\beta_{1}=\alpha/\omega_{\mathrm{c}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta_{2}=\alpha\omega_{\mathrm{c}}$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\[
+L_{k\plant}=\beta_{1}L_{k\mathrm{v}}^{\left(\mathrm{n}\right)}\,,\ \ C_{k\plant}=\frac{C_{k\mathrm{v}}^{\left(\mathrm{n}\right)}}{\beta_{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Firstly, the design constraints will be reformulated in terms of these three
+ degree of freedom.
+\end_layout
+
+\begin_layout Subsection
+Design Contraints
+\end_layout
+
+\begin_layout Subsubsection
+Attenuation
+\end_layout
+
+\begin_layout Standard
+The asymptotic attenuation of the designed filter in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:asympAtt"
+
+\end_inset
+
+ can be reformulated in terms of 
+\begin_inset Formula $\left\{ L_{1\plant},\beta_{1},\beta_{2}\right\} $
+\end_inset
+
+ as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\unit[\mathrm{Att_{req}}]{[\Omega]}\leq\omega_{\mathrm{d}}^{m}L_{\mathrm{1p}}\left(\prod_{k=2}^{\frac{m+1}{2}}L_{k\mathrm{v}}^{\left(\mathrm{n}\right)}\right)\left(\prod_{k=1}^{\frac{m-1}{2}}C_{k\mathrm{v}}^{\left(\mathrm{n}\right)}\right)\left(\frac{\beta_{1}}{\beta_{2}}\right)^{\frac{m-1}{2}}
+\]
+
+\end_inset
+
+with 
+\begin_inset Formula $\unit[\mathrm{Att_{req}}]{[\Omega]}=10^{\frac{\unit[\mathrm{Att_{req}}]{\left[dB\right]}}{20}}$
+\end_inset
+
+.
+ The next step is to find the required attenuation 
+\begin_inset Formula $\mathrm{Att_{req}}$
+\end_inset
+
+ based on harmonics standards.
+ Herein, we consider the attenuation based on two standards
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+At the time of writing, the new standard governing the harmonic limits in
+ the range of 
+\begin_inset Formula $\unit[9]{kHz}-\unit[150]{kHz}$
+\end_inset
+
+ is under development to fulfill the gap between the conventional low-frequenct
+ grid standard and the EMI standard.
+\end_layout
+
+\end_inset
+
+.
+ The conducted EMI standard is significantly more stringent.
+ The computation can be done for two switching frequencies as follows:
+\end_layout
+
+\begin_layout Enumerate
+Using 
+\begin_inset Formula $f_{\mathrm{sw}}=\unit[16]{kHz}$
+\end_inset
+
+: For a bipolar, sine-triangle, and symmetrical regular-sampled PWM, the
+ amplitude of the converter phase voltage harmonic is maximum at the switching
+ frequency and can be written as
+\begin_inset Formula 
+\[
+V_{\mathrm{pk}@f_{\mathrm{sw}}}=\frac{2V_{\mathrm{dc}}}{\pi}\mathrm{J}_{0}\left(\frac{\pi}{2}M\right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathrm{J}_{0}$
+\end_inset
+
+ is the Bessel function of order 
+\begin_inset Formula $0^{\mathrm{th}}$
+\end_inset
+
+, 
+\begin_inset Formula $M$
+\end_inset
+
+ is the modulation depth.
+ Assuming the worst-case of phase 
+\begin_inset Formula $\unit[90]{\textdegree C}$
+\end_inset
+
+ leading, the minimum modulation depth can be obtained as 
+\begin_inset Formula $0.443$
+\end_inset
+
+, yielding the worst-case harmonic spectrum of 
+\begin_inset Formula $\unit[224.74]{V}$
+\end_inset
+
+.
+ To limit this harmonic content below 0.15% of the rated fundamental current,
+ i.e.
+ 
+\begin_inset Formula $0.15\%I_{\mathrm{conv},{\rm n}}$
+\end_inset
+
+ (
+\begin_inset Formula $0.3\%I_{\mathrm{conv,n}}$
+\end_inset
+
+ with 
+\begin_inset Formula $50\%$
+\end_inset
+
+ margin), the required attenuation must satisfy
+\begin_inset Formula 
+\[
+\frac{V_{\mathrm{pk}@f_{\mathrm{sw}}}}{\mathrm{Att_{req}}\cdot I_{\mathrm{conv,n}}}\leq0.15\%\,.
+\]
+
+\end_inset
+
+According to the system parameters in Table xx, the required attenuation
+ 
+\begin_inset Formula $\mathrm{Att_{req}=}\unit[76.77]{dB}$
+\end_inset
+
+ is obtained.
+ In general, the required attenuation depends on the modulation depth, which,
+ in turn, varies with and the operating current and the filter component
+ values.
+ In other words, the attenuation requirement can be iterated through an
+ optimization process 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Jalili2009"
+
+\end_inset
+
+.
+ The attenuation requirement from conducted EMI standard is naturally met
+ and not considered here because the switching frequency is one decade away
+ the conducted EMI frequency range 
+\begin_inset Formula $\left(\unit[16]{kHz}\ll\unit[150]{kHz}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Using 
+\begin_inset Formula $f_{\mathrm{sw}}=\unit[100]{kHz}$
+\end_inset
+
+: This switching frequency is close to the conducted EMI frequency range
+ and far away from the upper limit of the frequency considered in IEEE519.
+ Therefore, the required attenuation when operating at this switching frequency
+ is considered from the conducted EMI CISPR standard.
+ Considering the extreme case of residential applications, the more stringent
+ class B standard must be complied with.
+ To find the required attenuation, a simplified EMI noise estimation is
+ considered herein based on the assumption that the total HF rms voltage
+ at the line impedance stabilization network (LISN) is an adequate measure
+ for the estimation of the quasi-peak (QP) detection output voltage of the
+ EMI test receiver 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Muhlethaler2012a"
+
+\end_inset
+
+.
+ Thus, this estimation requires no model of the EMI test receiver and the
+ LISN.
+ The rms PWM converter voltage 
+\begin_inset Formula $V_{\mathrm{conv,rms}}$
+\end_inset
+
+ consists of the fundamental component 
+\begin_inset Formula $V_{\mathrm{1,rms}}$
+\end_inset
+
+ and the DM high-frequency noise 
+\begin_inset Formula $V_{\mathrm{HF,rms}}$
+\end_inset
+
+.
+ The rms value of this DM noise can then be found from
+\begin_inset Formula 
+\[
+V_{\mathrm{HF,rms}}=\sqrt{V_{\mathrm{conv,rms}}^{2}-V_{\mathrm{1,rms}}^{2}}\,.
+\]
+
+\end_inset
+
+For bipolar modulation, it can be simplified to
+\begin_inset Formula 
+\[
+V_{\mathrm{HF,rms}}=\sqrt{V_{\mathrm{dc}}^{2}-V_{\mathrm{g}}^{2}}\,.
+\]
+
+\end_inset
+
+Subsequently, since the starting frequency of the EMI standard is 
+\begin_inset Formula $\unit[150]{kHz}$
+\end_inset
+
+, the design frequency 
+\begin_inset Formula $f_{\mathrm{d}}$
+\end_inset
+
+ which is the first harmonic of the PWM converter voltage after 
+\begin_inset Formula $\unit[150]{kHz}$
+\end_inset
+
+ is considered.
+ It can be estimated as
+\begin_inset Formula 
+\[
+\unit[V_{\mathrm{est}}\left(f_{\mathrm{d}}\right)]{\left[dB\mu V\right]}=20\log\left(\frac{V_{\mathrm{HF,rms}}}{m}\cdot\frac{1}{\unit[10^{-6}]{V}}\right)
+\]
+
+\end_inset
+
+with
+\begin_inset Formula 
+\[
+m=\mathrm{ceil}\left(\unit[150]{kHz}/f_{\mathrm{sw}}\right)
+\]
+
+\end_inset
+
+ and 
+\begin_inset Formula 
+\[
+f_{\mathrm{d}}=mf_{\mathrm{sw}}\,.
+\]
+
+\end_inset
+
+Finally, the required attenuation of the filter to fulfill EMI standards
+ at the design frequency 
+\begin_inset Formula $f_{\mathrm{d}}$
+\end_inset
+
+ can be estimated from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Raggl2010"
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\unit[\mathrm{Att_{req}}\left(f_{\mathrm{d}}\right)]{\left[dB\right]}\geq\unit[V_{\mathrm{est}}\left(f_{\mathrm{d}}\right)]{\left[dB\mu V\right]}-\unit[\mathrm{Limit}\left(f_{\mathrm{d}}\right)]{\left[dB\mu V\right]}+\unit[\mathrm{Margin}]{\left(dB\right)}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathrm{Limit}$
+\end_inset
+
+ is the attenuation required from the EMI standard and 
+\begin_inset Formula $\mathrm{Margin}$
+\end_inset
+
+ is added to accommodate parameter tolerances and drifts.
+ In the case at hand, 
+\begin_inset Formula $\mathrm{Margin}=\unit[15]{dB}$
+\end_inset
+
+ is chosen.
+ This also helps ensure the suppression of any residual unmodelled CM emissions.
+ According to the system parameters in Table and consider 
+\begin_inset Formula $f_{\mathrm{sw}}=\unit[150]{kHz}$
+\end_inset
+
+, we obtain 
+\begin_inset Formula $V_{\mathrm{HF,rms}}=\unit[327.27]{V}$
+\end_inset
+
+, 
+\begin_inset Formula $m=2$
+\end_inset
+
+, yielding 
+\begin_inset Formula $f_{\mathrm{d}}=\unit[200]{kHz}$
+\end_inset
+
+ and 
+\begin_inset Formula $V_{\mathrm{est}}\left(f_{\mathrm{d}}\right)=\unit[164.28]{dB\mu V}$
+\end_inset
+
+.
+ From the CISPR 11 class B standard in Fig.
+ xx, 
+\begin_inset Formula $\mathrm{Limit}\left(f_{\mathrm{d}}\right)=\unit[63.61]{dB\mu V}$
+\end_inset
+
+.
+ This results in 
+\begin_inset Formula $\mathrm{Att_{req}}\left(f_{\mathrm{d}}\right)=\unit[115.67]{dB}=$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Capacitive reactive power
+\end_layout
+
+\begin_layout Standard
+The constraint of the total capacitive reactive power can be reformuated
+ as
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+In this thesis, we consider it must not exceed 
+\begin_inset Formula $5\%$
+\end_inset
+
+ of the nominal output power 
+\begin_inset Formula $P_{\mathrm{n}}$
+\end_inset
+
+ at nominal operating conditions 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wu2012"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+or
+\begin_inset Formula 
+\begin{equation}
+V_{\mathrm{g}}^{2}\cdot\frac{\omega_{\mathrm{g}}}{\beta_{2}}\cdot\Sigma_{k=1}^{\frac{m-1}{2}}C_{k\mathrm{v}}^{\left(\mathrm{n}\right)}\leq\gamma P_{\mathrm{n}}\,.
+\end{equation}
+
+\end_inset
+
+or
+\begin_inset Formula 
+\[
+\beta_{2}\geq\frac{\omega_{\grid}V_{\grid}^{2}\cdot\Sigma_{k=1}^{\frac{m-1}{2}}C_{k\mathrm{v}}^{\left(\mathrm{n}\right)}}{\gamma P_{\mathrm{n}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Maximum voltage drop (Total inductance)
+\end_layout
+
+\begin_layout Standard
+The converter must be able to operate with its maximum output voltage (maximum
+ modulation depth in linear range) at rated current.
+ This constrains the maximum total inductance due to the allowable voltage
+ drop in the line reactance.
+ It can be expressed as 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\underline{V}_{\mathrm{g}}+\omega_{\mathrm{g}}\underline{I}_{\mathrm{g,n}}\left(L_{\mathrm{1p}}+\beta_{1}\cdot\Sigma_{k=2}^{\frac{m+1}{2}}L_{k\mathrm{v}}^{\left(\mathrm{n}\right)}\right)\leq\frac{V_{\mathrm{dc}}}{a}\label{eq:Lmax2-1}
+\end{equation}
+
+\end_inset
+
+considering the wost case of phas 
+\begin_inset Formula $\unit[90]{\textdegree}$
+\end_inset
+
+ lagging.
+\end_layout
+
+\begin_layout Subsubsection
+Resonant Frequency
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $5^{\mathrm{th}}$
+\end_inset
+
+-order filter, there are two resonant frequencies, which can be computed
+ from
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+f_{\mathrm{res}}=\frac{1}{2\pi}\cdot\left[\frac{A_{1}+A_{4}+B_{2}L_{1\plant}L_{3\plant}\pm\sqrt{A_{1}^{2}+2A_{5}L_{1\plant}C_{1\plant}^{2}+A_{2}^{2}-2A_{5}A_{6}B_{1}+2A_{6}\left(L_{1\plant}L_{3\plant}\right){}^{2}+A_{3}^{2}+2A_{5}C_{2\plant}^{2}L_{3p}+A_{4}^{2}}}{2A_{5}A_{6}}\right]^{1/2}\label{eq:fRes5Order}
+\end{equation}
+
+\end_inset
+
+with 
+\begin_inset Formula $A_{1}=C_{\mathrm{1p}}L_{\mathrm{1p}}L_{\mathrm{2p}}$
+\end_inset
+
+, 
+\begin_inset Formula $A_{2}=C_{\mathrm{1p}}L_{\mathrm{1p}}L_{3\plant}$
+\end_inset
+
+, 
+\begin_inset Formula $A_{3}=C_{\mathrm{2p}}L_{\mathrm{1p}}L_{3\plant}$
+\end_inset
+
+, 
+\begin_inset Formula $A_{4}=C_{\mathrm{2p}}L_{\mathrm{2p}}L_{3\plant}$
+\end_inset
+
+, 
+\begin_inset Formula $A_{5}=L_{\mathrm{1p}}L_{\mathrm{2p}}L_{\mathrm{3p}}$
+\end_inset
+
+, 
+\begin_inset Formula $A_{6}=C_{1\plant}C_{2\plant}$
+\end_inset
+
+, 
+\begin_inset Formula $B_{1}=L_{1\plant}+L_{2\plant}$
+\end_inset
+
+ and 
+\begin_inset Formula $B_{2}=C_{\mathrm{1p}}+C_{\mathrm{2p}}$
+\end_inset
+
+.
+ These two resonant frequencies must satisfy condition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:condFres"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Dimensioning of Inductors
+\end_layout
+
+\begin_layout Standard
+All the considered cores for designing inductors in this section are off-the-she
+lves toroidal powdered cores
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+At the time of writing this thesis, Magnetics
+\begin_inset Formula $^{\circledR}$
+\end_inset
+
+ had launched Kool M
+\begin_inset Formula $\mu$
+\end_inset
+
+ MAX, the next generation of sendust cores improving DC bias performance
+ for 
+\begin_inset Formula $50\%$
+\end_inset
+
+.
+ Nevertheless, it does not aim to improve the design in the application
+ where no large DC component presents in the considered application.
+\end_layout
+
+\end_inset
+
+ from Magnetics
+\begin_inset Formula $^{\circledR}$
+\end_inset
+
+ (
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "tab:CoreMaterial"
+
+\end_inset
+
+) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Magnetics$\\circledR$2015"
+
+\end_inset
+
+.
+ These cores made of 4 types of distributed gap materials, leading to soft-satur
+ation characteristics.
+ This type of cores become more promising for high-frequency applications
+ due to 3 main benefits over gapped Ferrite core: (a) the cores have higher
+ saturation flux density with softer saturation curve; the permeability
+ slowly rolls off in a predictable way at high flux density 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wei2018"
+
+\end_inset
+
+, (b) the stray field is reduced without a concentrated air gap and (c)
+ the magnetic characteristics are less sensitive to temperature changes
+ and DC bias.
+\end_layout
+
+\begin_layout Standard
+Moreover, only the single layer is considered.
+ The advantages are lower parasitic winding capacitance, more repeatable
+ frequency characteristics, good cooling and low cost.
+ This helps improve the frequency characteristics of the filter inductors
+ cite{Muhlethaler optimal design of EMI filters for..}.
+ (Disadvantages are reduced power handling and higher flux leakage.) Only
+ solid wire is considered herein.
+\end_layout
+
+\begin_layout Standard
+The inductor losses comprise winding and core losses.
+\end_layout
+
+\begin_layout Standard
+For simplicity, the litz wire is not considered in the optimization.
+\end_layout
+
+\begin_layout Standard
+Moreover, only the single layer is considered.
+ The advantages are lower parasitic winding capacitance, more repeatable
+ frequency characteristics, good cooling and low cost.
+ This helps improve the frequency characteristics of the filter inductors
+ cite{Muhlethaler optimal design of EMI filters for..}.
+ (Disadvantages are reduced power handling and higher flux leakage.) Only
+ solid wire is considered herein.
+ 
+\end_layout
+
+\begin_layout Standard
+More detail can be found in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Muhlethaler2012"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The wire considered is the heavy build wire with the wire size ranging from
+ AWG 6 (diameter of 
+\begin_inset Formula $\unit[0.421]{cm}$
+\end_inset
+
+) to AWG 49 (diameter of 
+\begin_inset Formula $\unit[0.00353]{cm}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsubsection
+Calculation of the inductance
+\end_layout
+
+\begin_layout Standard
+The inductance of a toroid is computed from
+\begin_inset Formula 
+\[
+L=N^{2}A_{\mathrm{L}}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $N$
+\end_inset
+
+ is the number of winding turns and 
+\begin_inset Formula $A_{\mathrm{L}}$
+\end_inset
+
+ is the inductance coefficient, typically given by the manufacturer.
+ This coefficient can also be computed from
+\begin_inset Formula 
+\[
+A_{\mathrm{L}}=\mu_{\mathrm{r}}\mu_{0}\frac{A_{\mathrm{e}}}{l_{\mathrm{e}}}
+\]
+
+\end_inset
+
+with the relative permeability of the core and vaccumm 
+\begin_inset Formula $\mu_{\mathrm{r}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu_{0}$
+\end_inset
+
+, the effective core cross-sectional area 
+\begin_inset Formula $A_{\mathrm{e}}$
+\end_inset
+
+, and the effective magnetic length 
+\begin_inset Formula $l_{\mathrm{e}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Core saturation
+\end_layout
+
+\begin_layout Standard
+To avoid core saturation, the magnetic field inside the core must not higher
+ than the saturation flux density 
+\begin_inset Formula $B_{\mathrm{sat}}$
+\end_inset
+
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:CoreMaterial"
+
+\end_inset
+
+.
+ Assuming a tightly wound toroid, the magnetic field inside the core excited
+ with current 
+\begin_inset Formula $i$
+\end_inset
+
+ is maximum at the inner radious 
+\begin_inset Formula $r_{1}$
+\end_inset
+
+.
+ This can be calculated by Ampere's law from
+\begin_inset Formula 
+\[
+B_{\mathrm{max}}=\mu_{\mathrm{r}}\mu_{0}\frac{Ni}{2\pi r_{1}}<B_{\mathrm{sat}}\,.
+\]
+
+\end_inset
+
+If the variation of the field inside the core is considered fairly small,
+ given the equivalent core cross-sectional area 
+\begin_inset Formula $A_{\mathrm{e}}$
+\end_inset
+
+ from the manufacturer, one can also find the flux density from
+\begin_inset Formula 
+\[
+B_{\mathrm{max}}=\frac{Li}{NA_{\mathrm{e}}}<B_{\mathrm{sat}}\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Core losses.27
+\end_layout
+
+\begin_layout Standard
+The core losses 
+\begin_inset Formula $P_{\mathrm{core}}$
+\end_inset
+
+ are assessed with the improved Generalized Steinmetz Equation (iGSE) in
+ Section xx (xx) with the Steinmetz parameters from the manufacturer.
+ The flux density waveform is separated into a major loop and minor loops
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Venkatachalam2002"
+
+\end_inset
+
+.
+ Subsequently, the core losses associated to each loop then is calculated
+ using the iGSE.
+ For piecewise linear (PWL) flux waveform in the considered application,
+ a simplified form of the iGSE can be obtained by replacing the integral
+ with a simple sum.
+ It can be expressed as 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Venkatachalam2002"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\left\langle P_{\mathrm{core}}\right\rangle =\frac{k_{\mathrm{iGSE}}\left(\Delta B\right)^{\beta-\alpha}}{T}\Sigma_{m}\left|\frac{B_{m+1}-B_{m}}{t_{m+1}-t_{m}}\right|^{\alpha}\left(t_{m+1}-t_{m}\right)\label{eq:iGSE_pwl}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Note that in the case of other waveforms, such as sinusoidal waveforms,
+ a PWL approximation can be used with 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:iGSE_pwl"
+
+\end_inset
+
+ to approximate (iGSE).
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+k_{\mathrm{iGSE}}=\frac{k}{2^{\beta-\alpha}(2\pi)^{\alpha-1}\int_{0}^{2\pi}\left|\cos\theta\right|^{\alpha}\,\mathrm{d}\theta}
+\]
+
+\end_inset
+
+and the approximation
+\begin_inset Formula 
+\[
+\int_{0}^{2\pi}\left|\cos\theta\right|^{\alpha}\,\mathrm{d}\theta\approx4\cdot\left(0.2761+\frac{1.7061}{\alpha+1.354}\right)\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With a set of power losses associated with each major and minor loop computed
+ with 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:iGSE_pwl"
+
+\end_inset
+
+, the total average power losses 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $P_{\mathrm{core,tot}}$
+\end_inset
+
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+can be found by computing the total energy losses over one fundamental period
+ and dividing it by the total period.
+ The total energy losses is computed by summing the energy losses in major
+ or minor loop.
+ For major or minor loop 
+\begin_inset Formula $i$
+\end_inset
+
+ with the loop period 
+\begin_inset Formula $T_{i}$
+\end_inset
+
+, the corresponding loss 
+\begin_inset Formula $P_{\mathrm{core},i}$
+\end_inset
+
+ given by 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:iGSE_pwl"
+
+\end_inset
+
+ leads to the loop energy loss 
+\begin_inset Formula $P_{\mathrm{core},i}T_{i}$
+\end_inset
+
+.
+ Therefore, the total loss can be expressed as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P_{\mathrm{core,tot}}=\Sigma_{i}P_{\mathrm{core},i}\frac{T_{i}}{T}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $T$
+\end_inset
+
+ is the fundamental period.
+\end_layout
+
+\begin_layout Subsubsection
+Winding losses
+\end_layout
+
+\begin_layout Standard
+The computation of winding losses involves DC and AC losses and is divided
+ into (a) skin-effect losses (including DC losses) and (b) proximity-effect
+ losses 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Muhlethaler2012"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The skin-effect losses (including DC losses) in a round wire due to sinusoidal
+ current with rms magnitude 
+\begin_inset Formula $I_{\mathrm{rms}}$
+\end_inset
+
+ and frequency 
+\begin_inset Formula $f$
+\end_inset
+
+ can be computed from
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P_{\mathrm{winding,skin}}=F_{\mathrm{R}}(f)\cdot R_{\mathrm{dc}}\cdot I_{\mathrm{rms},m}^{2}
+\]
+
+\end_inset
+
+with the DC resistance 
+\begin_inset Formula $R_{\mathrm{dc}}$
+\end_inset
+
+ and skin-effect resistance factor 
+\begin_inset Formula $F_{\mathrm{R}}$
+\end_inset
+
+.
+ The latter is a function of skin-depth 
+\begin_inset Formula $\delta$
+\end_inset
+
+ and wire diameter 
+\begin_inset Formula $d$
+\end_inset
+
+ and can be written in terms of the Kelvin functions of order 
+\begin_inset Formula $\nu^{\mathrm{th}}$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $\mathrm{ber}_{\nu}\left(x\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathrm{bei}_{\nu}\left(x\right)$
+\end_inset
+
+, 
+\begin_inset Formula $x$
+\end_inset
+
+ is real, as
+\begin_inset Formula 
+\begin{align*}
+F_{\mathrm{R}} & =\frac{\xi}{2\sqrt{2}}(\frac{\mathrm{ber}_{0}\left(\xi\right)\mathrm{bei}_{1}\left(\xi\right)-\mathrm{ber}_{0}\left(\xi\right)\mathrm{ber}_{1}\left(\xi\right)}{\mathrm{ber}_{1}\left(\xi\right)^{2}+\mathrm{bei}_{1}\left(\xi\right)^{2}}\\
+ & -\frac{\mathrm{bei}_{0}\left(\xi\right)\mathrm{ber}_{1}\left(\xi\right)+\mathrm{bei}_{0}\left(\xi\right)\mathrm{bei}_{1}\left(\xi\right)}{\mathrm{ber}_{1}\left(\xi\right)^{2}+\mathrm{bei}_{1}\left(\xi\right)^{2}})
+\end{align*}
+
+\end_inset
+
+conducts a feasibility study of extending the proposed co-design method
+ to design high-order filters with multi-objective optimization.with the
+ conductivity 
+\begin_inset Formula $\sigma$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\delta=\frac{1}{\sqrt{\pi\mu_{0}\sigma f}}\,,\ \xi=\frac{d}{\sqrt{2}\delta}
+\]
+
+\end_inset
+
+and the 
+\begin_inset Formula $\nu^{\mathrm{th}}$
+\end_inset
+
+ order Bessel function of the first kind 
+\begin_inset Formula $\mathrm{J}_{\nu}\left(z\right)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathrm{J}_{\nu}\left(\mathrm{j}^{\frac{3}{2}}x\right)=\mathrm{ber}_{\nu}\left(x\right)+\mathrm{j}\mathrm{bei}_{\nu}\left(x\right)\,.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The proximity-effect losses in a round wire with diameter 
+\begin_inset Formula $d$
+\end_inset
+
+ due to an external sinusoidal magnetic field with amplitude 
+\begin_inset Formula $H_{\mathrm{rms}}$
+\end_inset
+
+ perpendicular to the wire direction can be evaluated from
+\begin_inset Formula 
+\begin{equation}
+P_{\mathrm{winding,prox}}=G_{\mathrm{R}}(f)\cdot R_{\mathrm{dc}}\cdot H_{\mathrm{e,rms}}^{2}\label{eq:pProx4Optim}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+G_{\mathrm{R}} & =-\frac{\xi\pi^{2}d^{2}}{\sqrt{2}}(\frac{\mathrm{ber}_{2}\left(\xi\right)\mathrm{ber}_{1}\left(\xi\right)+\mathrm{ber}_{2}\left(\xi\right)\mathrm{bei}_{1}\left(\xi\right)}{\mathrm{ber}_{0}\left(\xi\right)^{2}+\mathrm{bei}_{0}\left(\xi\right)^{2}}\\
+ & +\frac{\mathrm{bei}_{2}\left(\xi\right)\mathrm{bei}_{1}\left(\xi\right)-\mathrm{bei}_{2}\left(\xi\right)\mathrm{ber}_{1}\left(\xi\right)}{\mathrm{ber}_{0}\left(\xi\right)^{2}+\mathrm{bei}_{0}\left(\xi\right)^{2}})\,.
+\end{align*}
+
+\end_inset
+
+From 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:pProx4Optim"
+
+\end_inset
+
+, to calculate the proximity losses of the winding , the magnetic field
+ 
+\begin_inset Formula $H_{\mathrm{ext}}$
+\end_inset
+
+ through the winding turn is required.
+ For simplicity, each conductor is assumed to be uniformly penetrated by
+ the average external magnetic field.
+ From 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Muhlethaler2012a"
+
+\end_inset
+
+, the average magnetic field for 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:pProx4Optim"
+
+\end_inset
+
+ can be simply calculated from Ampere's Law is then 
+\begin_inset Formula 
+\[
+H_{\mathrm{e,rms}}=\frac{1}{2}\cdot\frac{NI_{\mathrm{rms}}}{\left(2\pi r_{\mathrm{1}}\right)}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $r_{1}$
+\end_inset
+
+ is the inner radius of the toroidal core and 
+\begin_inset Formula $N$
+\end_inset
+
+ is the number of winding turns.
+\end_layout
+
+\begin_layout Standard
+Equivalently, summing skin-effect and proximity-effect losses amounts to
+ the equivalent frequency-dependent AC resistance (including DC resistance),
+ which can be written as
+\begin_inset Formula 
+\begin{equation}
+R_{\mathrm{ac}}\left(f\right)=R_{\mathrm{dc}}\cdot\left(F_{\mathrm{R}}\left(f\right)+\frac{1}{2}\cdot G_{\mathrm{R}}\left(f\right)\cdot\frac{N^{2}}{\left(2\pi r_{\mathrm{1}}\right)^{2}}\right)\label{eq:RacEqui}
+\end{equation}
+
+\end_inset
+
+Thanks to the its linearity, the total losses then can be computed by summing
+ up the loss contributions of the current harmonics over a mains period
+ by
+\begin_inset Formula 
+\begin{equation}
+P_{\mathrm{winding}}=I_{\mathrm{1}}^{2}\cdot R_{\mathrm{ac,1}}+\sum_{I_{m}\geq5\%I_{m_{\mathrm{f}}}}I_{\mathrm{m}}^{2}\cdot R_{\mathrm{ac},m}\,,\ \ m_{\mathrm{f}}=\frac{f_{\mathrm{sw}}}{f_{\mathrm{g}}}\label{eq:windingLossOpt}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $I_{m}$
+\end_inset
+
+ is the rms value of the 
+\begin_inset Formula $m^{\mathrm{th}}$
+\end_inset
+
+ harmonic of the inductor current and 
+\begin_inset Formula $R_{\mathrm{ac},m}=R_{\mathrm{ac}}\left(mf_{0}\right)$
+\end_inset
+
+ (hence 
+\begin_inset Formula $R_{\mathrm{ac,1}}\approx R_{\mathrm{dc}})$
+\end_inset
+
+ calculated with 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:RacEqui"
+
+\end_inset
+
+ at Temperature 
+\begin_inset Formula $\unit[100]{\textdegree C}$
+\end_inset
+
+.
+ According to 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:windingLossOpt"
+
+\end_inset
+
+, all harmonics (including PWM sideband harmonics) with the rms value larger
+ than or equal 
+\begin_inset Formula $5\%$
+\end_inset
+
+ of the rms value 
+\begin_inset Formula $I_{m_{\mathrm{f}}}$
+\end_inset
+
+ at the switching frequency 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Boillat2015"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Temperature rise
+\end_layout
+
+\begin_layout Standard
+Finally, to verify that the designed inductor is feasible, the losses must
+ not cause the excessive temperature rises.
+ Based on the considered toroidal cores, the maximum temperature of the
+ component in still air can be approximated from the following empirical
+ formula 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Magnetics$\\circledR$2015"
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+T_{\mathrm{L}}=T_{\mathrm{amb}}+\left(10\cdot\frac{P_{\mathrm{core}}+P_{\mathrm{winding}}}{S_{40\%}}\right)^{0.8333}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $T_{\mathrm{amb}}$
+\end_inset
+
+ is the ambient temperature and, hereon, considered to be 
+\begin_inset Formula $\unit[40]{\textdegree C}$
+\end_inset
+
+, and 
+\begin_inset Formula $S_{40\%}$
+\end_inset
+
+ is the component surface area of the toroidal core wound to 
+\begin_inset Formula $40\%$
+\end_inset
+
+ of the winding window.
+ 
+\end_layout
+
+\begin_layout Standard
+Inductor designs which incur the temperature higher than the maximum allowable
+ temperature 
+\begin_inset Formula $T_{\mathrm{L,max}}$
+\end_inset
+
+ are excluded from the Pareto optimization.
+ Hereon, 
+\begin_inset Formula $T_{\mathrm{L,max}}=\unit[100]{\textdegree C}$
+\end_inset
+
+ is considered.
+ 
+\end_layout
+
+\begin_layout Subsection
+Dimensioning of Capacitors
+\end_layout
+
+\begin_layout Standard
+The capacitors considered in this section are 3 types of AC film capacitors.
+ The meta-parameteriazation concept in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Barrera-cardenas2015"
+
+\end_inset
+
+ is used to simplify the evaluation of capacitors.
+ For the same capacitor technology (dielectric material and fabrication
+ process among others), the capacitor boxed volume of capacitance 
+\begin_inset Formula $C$
+\end_inset
+
+ and rated peak voltage 
+\begin_inset Formula $V_{\mathrm{C},\mathrm{pk}}$
+\end_inset
+
+ can be predicted by an empirical power law
+\begin_inset Formula 
+\begin{equation}
+Vol_{\mathrm{C}}=K_{\mathrm{V0}}\cdot C^{K_{\mathrm{V1}}}\cdot V_{\mathrm{C,pk}}^{K_{\mathrm{V2}}}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $K_{\mathrm{V0}},K_{\mathrm{V1}},K_{\mathrm{V2}}$
+\end_inset
+
+ are regression coefficients from reference capacitor technology (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Capacitor-Meta-Parameters"
+
+\end_inset
+
+).
+ Note that the rated peak voltage 
+\begin_inset Formula $V_{\mathrm{C},\mathrm{pk}}$
+\end_inset
+
+ is estimated with 
+\begin_inset Formula $30\%$
+\end_inset
+
+ margin.
+ 
+\end_layout
+
+\begin_layout Standard
+The total power dissipation in capacitors is mainly composed of the dielectric
+ losses 
+\begin_inset Formula $P_{\varepsilon\mathrm{C}}$
+\end_inset
+
+ and the resistive losses 
+\begin_inset Formula $P_{\Omega\mathrm{C}}$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "EPCOS2018"
+
+\end_inset
+
+.
+ The former is originated from the energy wasted to polarize and repolarize
+ the dielectic under AC voltage, whereas the latter stems from the losses
+ in series resistance, which represents the sum of the contact resistances
+ and the resistances of leads, metal layers and electrode foils.
+ The dielectric losses can be calculated from 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+P_{\varepsilon\mathrm{C}}=\pi f_{0}C\tan\left(\delta_{\mathrm{D}}\right)V_{\mathrm{ac,pk}}^{2}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $V_{\mathrm{ac,pk}}$
+\end_inset
+
+ is the peak value of symmetrical AC capacitor voltage with fundamental
+ frequency 
+\begin_inset Formula $f_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $\tan\left(\delta_{\mathrm{D}}\right)$
+\end_inset
+
+ is the dissipation factor of dielectric.
+ The resistive losses can be computed from
+\begin_inset Formula 
+\begin{equation}
+P_{\Omega\mathrm{C}}=I_{\mathrm{C,rms}}^{2}R_{\mathrm{C,s}}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $I_{\mathrm{C,rms}}$
+\end_inset
+
+ is the rms value of capacitor current and 
+\begin_inset Formula $R_{\mathrm{C,s}}$
+\end_inset
+
+ is the series resistance at maximum hot-spot temperature.
+ This resistance at temperature 
+\begin_inset Formula $\unit[20]{\textdegree C}$
+\end_inset
+
+ can be estimated by
+\begin_inset Formula 
+\begin{equation}
+R_{\mathrm{C,s}}=K_{\mathrm{R0}}\cdot C^{K_{\mathrm{R1}}}\cdot V_{\mathrm{C,pk}}^{K_{\mathrm{R2}}}\label{eq:Rsc}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $K_{\mathrm{R0}},K_{\mathrm{R1}},K_{\mathrm{R2}}$
+\end_inset
+
+ are regression coefficients from reference capacitor technology (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Capacitor-Meta-Parameters"
+
+\end_inset
+
+).
+ The resistance at nominal temperature (typically 
+\begin_inset Formula $\unit[85]{\textdegree C}$
+\end_inset
+
+) can be estimated by applying a conversion factor of 1.25 to
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:Rsc"
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "TDK"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Capacitor Meta Parameters 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Barrera-cardenas2015"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Capacitor-Meta-Parameters"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Technology
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MKP-B236x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MKV-E1x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MKP-B3292x
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Manufacturer
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TDK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ICAR
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TDK
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{\mathrm{V0}}$
+\end_inset
+
+
+\begin_inset Formula $\left(\mathrm{cm}^{3}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $673.03$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $134.06$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $260.33$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{\mathrm{V1}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.677$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.541$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.7084$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{\mathrm{V2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.071$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.222$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.071$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{\mathrm{R0}}$
+\end_inset
+
+
+\begin_inset Formula $\left(\mathrm{m\Omega}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.571$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.0049$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2.643$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{\mathrm{R1}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-0.397$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.0078$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-0.369$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{\mathrm{R2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-0.454$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.0316$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-0.454$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\tan\delta_{\mathrm{D}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2\times10^{-4}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2\times10^{-4}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1\times10^{-3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Parameters of the considered magnetic materials 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Magnetics$\\circledR$2015"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:CoreMaterial"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Core material
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Kool M
+\begin_inset Formula $\mu^{\circledR}$
+\end_inset
+
+ (Sendust)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+XFlux
+\begin_inset Formula $^{\circledR}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+High Flux
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MPP (Molypermalloy)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Available relative permeabilities
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $14-125$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $26-90$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $14-160$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TDK
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Saturation flux density, 
+\begin_inset Formula $B_{\mathrm{sat}}$
+\end_inset
+
+ 
+\begin_inset Formula $\left(\mathrm{Tesla}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.6$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.8$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $k$
+\end_inset
+
+
+\begin_inset Formula $\left(\mathrm{mW/dm^{3}}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.18-5.00$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $33.81-47.05$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $9.57-26.36$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.28-155.9$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.29-1.63$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.282-1.332$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.32-1.54$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.47-1.68$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\beta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2.01-2.09$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.825-1.865$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2.22-2.31$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2.00-2.13$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Relative cost
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.2x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4x-6x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7x-9x
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Frequency response -
+\begin_inset Formula $60\mu$
+\end_inset
+
+ flat to ...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[900]{kHz}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[500]{kHz}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[1]{MHz}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[2]{MHz}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Filter Design and Optimization
+\end_layout
+
+\begin_layout Standard
+Given the design variable 
+\begin_inset Formula $\left\{ L_{\mathrm{1p}},a_{1},a_{2}\right\} $
+\end_inset
+
+, the loss and volume models of inductors and capacitors are employed to
+ compute the Pareto front of the 
+\begin_inset Formula $LCL$
+\end_inset
+
+ and 
+\begin_inset Formula $LCLCL$
+\end_inset
+
+ output filters.
+ The optimization procedure can be summarized as the flowchart in Fig.
+ xx.
+ The different criteria are evaluated for each selected design to determine
+ its feasibility.
+ The design variable are selected based on geometric series to achieve a
+ constant relative change between adjacent values (command 
+\begin_inset Formula $`\mathtt{logspace}'$
+\end_inset
+
+ in MATLAB).
+ 
+\end_layout
+
+\begin_layout Standard
+Since the computation of core losses and winding losses 
+\begin_inset Formula $P_{\mathrm{core}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Switching frequency 
+\begin_inset Formula $f_{\mathrm{sw}}=\unit[16]{kHz}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Switching frequency 
+\begin_inset Formula $f_{\mathrm{sw}}=\unit[100]{kHz}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Although the detailed investigation is not the main focus of this study,
+ the results show that at this operating condition the use of 
+\begin_inset Formula $5^{\mathrm{th}}$
+\end_inset
+
+-order filter looks promising.
+\end_layout
+
+\begin_layout Section
+Conclusions
+\end_layout
+
+\begin_layout Standard
+Due to the resemblance of the virtual and physical circuits, the converter
+ voltage 
+\begin_inset Formula $v_{{\rm conv}}$
+\end_inset
+
+ in both circuits can be controlled to behave similarly and most of the
+ components will be accordingly realized as real hardware (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proposed-design-approach"
+
+\end_inset
+
+b&c) .
+\end_layout
+
+\begin_layout Standard
+Unlike the conventional design method of actively-damped 
+\begin_inset Formula $LCL$
+\end_inset
+
+ filters, the proposed method in this letter simultaneously takes into account
+ and yields the design of the physical circuit as well as the associated
+ active-damping scheme.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+The method effectively provides a guide to component sizing while providing
+ proper damping of the inherent resonances of the filters.
+ 
+\end_layout
+
+\end_inset
+
+Implementation of the digital control together with transforms an undamped
+ filter into a properly damped singly-terminated ladder circuit.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+The mathematical model of the digital control architecture is explicitly
+ formulated to aid the analysis and evaluation of the system performance.
+ 
+\end_layout
+
+\end_inset
+
+The problem of inherent sample delay is overcome by the use of a Kalman
+ observer to predict the state one-step ahead.
+ The example filter is designed and tested with the three-phase grid-connected
+ inverter.
+ The measured output currents show excellent response in both frequency
+ and time domains.
+ The bandwidth of the small-signal reference tracking transfer function
+ is 6.67% from the designed value at 
+\begin_inset Formula $\unit[1.65]{kHz}$
+\end_inset
+
+.
+ In the step-up/down test,the output current shows well damped response
+ (16% overshoot and 0.25-ms rise time 
+\begin_inset Formula $\unit[0.25]{ms}$
+\end_inset
+
+ of 28-Amp step command in 
+\begin_inset Formula $dq$
+\end_inset
+
+-coordinate).
+ At steady state, the output current shows sinusoidal waveform with a THD
+ of 0.97% against a grid voltage with a THD of 1.8%.
+ The letter proves useful for the design of 
+\begin_inset Formula $LCL$
+\end_inset
+
+-filter and a cornerstone for the design of higher-order filters in the
+ future work.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Section
+First appendix
+\end_layout
+
+\begin_layout Plain Layout
+The matrices of the continuous- and discrete-time state-space models of
+ the 
+\begin_inset Formula $LCL$
+\end_inset
+
+ converter in 
+\begin_inset Formula $\alpha\beta$
+\end_inset
+
+ coordinates are...
+\end_layout
+
+\begin_layout Plain Layout
+Given the continuous
+\end_layout
+
+\begin_layout Plain Layout
+Herein 
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+ is assumed invertible with some small parasitic resistances.
+ The average value of the state variables of the system can be computed
+ from
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{align}
+\bar{\mathbf{x}}_{[k,k+1]} & =\frac{1}{T_{s}}\int_{kT_{s}}^{(k+1)T_{s}}\mathbf{x}\left(\tau\right)\mbox{d}\tau\nonumber \\
+ & =\frac{1}{T_{s}}\left(e^{\mathbf{A}_{c}T_{s}}-\mathbf{I}\right)\mathbf{A}_{c}^{-1}\mathbf{x}_{k}+\left(\frac{1}{T_{s}}\left(e^{\mathbf{A}_{c}T_{s}}-\mathbf{I}\right)\mathbf{A}_{c}^{-1}-\mathbf{I}\right)\mathbf{A}_{c}^{-1}\left(\mathbf{B}_{c,in}\mathbf{u}_{in,k}+\mathbf{B}_{c,out}\mathbf{u}_{out,k}\right)\nonumber \\
+ & =\mathbf{G}\mathbf{x}_{k}+\mathbf{F}_{in}\mathbf{u}_{in,k}+\mathbf{F}_{out}\mathbf{u}_{out,k}\,.\label{eq:vcc_1.3c-1}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Section*
+Acknowledgment
+\end_layout
+
+\begin_layout Plain Layout
+This paper is supported by the Advanced Electric Powertrain Technology (ADEPT)
+ project which is an EU funded Marie Curie ITN project, grant number 607361.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dominant second and prototype design approaches does not coniser the amount
+ of control effort required.
+ Designer must iterate on the selected bandwidth (
+\begin_inset Formula $\omega_{\mathrm{c}}$
+\end_inset
+
+) to ensure the control effort
+\end_layout
+
+\begin_layout Standard
+conducts a feasibility study of extending the proposed co-design method
+ to design high-order filters with multi-objective optimization.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "My Collection,letter_2017"
+options "IEEEtran"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
